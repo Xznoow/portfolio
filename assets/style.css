@@ -37,16 +37,16 @@
   --rayon-s: 10px;
   --rayon-carte: 18px;
   --rayon-bande: 20px;
+
+  --largeur-max: 1100px;
 }
 
-/* Reset : on neutralise les marges par défaut des navigateurs */
 *, *::before, *::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base */
 body{
   min-height: 100vh;
   background: var(--fond);
@@ -72,4 +72,48 @@ h1{
 h2{
   font-size: clamp(1.25rem, 3vw, 1.6rem);
   font-weight: 650;
+}
+
+main,
+header{
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding: 2rem 1.25rem;
+}
+
+/* Header : logo à gauche, menu à droite */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  text-decoration: none;
+  color: var(--encre);
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+
+.logo span{
+  color: var(--accent);
+}
+
+/* Menu : les liens côte à côte */
+nav ul{
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a{
+  text-decoration: none;
+  color: var(--discret);
+  font-size: 0.9375rem;
+  font-weight: 550;
+  transition: color 0.2s ease;
+}
+
+nav a:hover{
+  color: var(--encre);
 }
