@@ -117,3 +117,76 @@ nav a{
 nav a:hover{
   color: var(--encre);
 }
+
+/* Bouton burger : caché sur grand écran */
+.burger{
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.burger span{
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: var(--discret);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* Contour visible quand on navigue au clavier (Tab) */
+.burger:focus-visible,
+nav a:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  header{
+    flex-wrap: wrap;           /* le menu peut passer sous la ligne logo + burger */
+  }
+
+  .burger{
+    display: flex;
+  }
+
+  nav{
+    display: none;
+    width: 100%;               /* prend toute une ligne, sous le logo et le burger */
+  }
+
+  header.ouvert nav{
+    display: block;
+  }
+
+  nav ul{
+    flex-direction: column;
+    gap: 0;
+    padding-top: 1rem;
+  }
+
+  nav a{
+    display: block;            /* toute la ligne est cliquable, plus facile au doigt */
+    padding: 0.75rem 0;
+    font-size: 1rem;
+  }
+
+  /* Animation ☰ → ✕ : 3px de hauteur + 3px d'espace = 6px de décalage */
+  header.ouvert .burger span:nth-child(1){
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  header.ouvert .burger span:nth-child(2){
+    opacity: 0;
+  }
+
+  header.ouvert .burger span:nth-child(3){
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
