@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>portfolio</title>
-<meta name="description" content="">
-<link rel="stylesheet" href="assets/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Degeorges-Antoine Portfolio</title>
+    <meta name="description" content="">  <!-- Le texte sous le lien google -->
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<main>
-    <h1>portfolio</h1>
-    <p class="sous">Site statique. Ouvrir ce dossier dans VS Code et lancer Live Server.</p>
 
-    <h2>Rappels avant mise en ligne</h2>
-    <ul>
-        <li>Chemins <strong>relatifs</strong> : <code>assets/style.css</code>, jamais <code>C:/…</code></li>
-        <li>Casse des noms de fichiers : Linux distingue <code>Logo.png</code> de <code>logo.png</code></li>
-        <li>Remplir la balise <code>meta description</code> ci-dessus</li>
-        <li>Ajouter un <code>favicon.ico</code> a la racine</li>
-    </ul>
+    <header>
+        <h2>Degeorges Antoine</h2>
+        <nav>
+            <ul>
+                <li><a href="#/">Acceuil</a></li>
+                <li><a href="#/parcours">Parcours</a></li>
+                <li><a href="#/projets">Projets</a></li>
+                <li><a href="#/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2>Tester comme en production</h2>
-    <pre>docker run --rm -p 8000:80 -v "${PWD}:/usr/share/nginx/html:ro" nginx:alpine</pre>
-</main>
+    <main>
+        <section></section>
+        <section></section>
+        <section></section>
+    </main>
+
+    <footer>© 2026 Degeorges-Antoine</footer>
+
+    <script src="assets/script.js" defer></script>
+
 </body>
 </html>
