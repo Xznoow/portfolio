@@ -3,31 +3,77 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Degeorges-Antoine Portfolio</title>
-    <meta name="description" content="">  <!-- Le texte sous le lien google -->
+    <title>Antoine Degeorges – Portfolio</title>
+    <meta name="description" content="Antoine Degeorges, étudiant en BUT Informatique à Annecy et développeur web freelance. Découvrez mon parcours et mes projets.">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
     <header>
-        <h2>Degeorges Antoine</h2>
+        <a href="#/" class="logo">Antoine.D</a>
         <nav>
             <ul>
-                <li><a href="#/">Acceuil</a></li>
+                <li><a href="#/">Accueil</a></li>
                 <li><a href="#/parcours">Parcours</a></li>
                 <li><a href="#/projets">Projets</a></li>
                 <li><a href="#/contact">Contact</a></li>
             </ul>
         </nav>
+        <!-- À FAIRE : réactiver une fois assets/cv.pdf ajouté
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">Mon CV</a>
+        -->
     </header>
 
     <main>
-        <section></section>
-        <section></section>
-        <section></section>
+        <section data-route="/" data-title="Accueil">
+            <h1>Salut, moi c'est Antoine.</h1>
+            <p class="sous-titre">Étudiant en BUT Informatique, et déjà développeur web freelance.</p>
+            <p>J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+            <a href="#/projets" class="btn">Voir mes projets</a>
+        </section>
+        <section data-route="/parcours" data-title="Parcours">
+            <h1>Parcours</h1>
+            <p>Ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
+            <ol class="parcours">
+                <li>
+                    <p><time datetime="2026">2026</time> – aujourd'hui</p>
+                    <h2>BUT Informatique – 2e année</h2>
+                    <p>Parcours Réalisation d'applications, à la recherche d'un stage.</p>
+                    <p>IUT d'Annecy.</p>
+                </li>
+                <li>
+                    <p><time datetime="2026">2026</time></p>
+                    <h2>Développeur web freelance</h2>
+                    <p>Création, hébergement et maintenance de sites web pour des clients.</p>
+                </li>
+                <li>
+                    <p><time datetime="2025">2025</time> – <time datetime="2026">2026</time></p>
+                    <h2>BUT Informatique – 1re année</h2>
+                    <p>IUT d'Annecy.</p>
+                </li>
+                <li>
+                    <p><time datetime="2025">2025</time></p>
+                    <h2>Baccalauréat technologique – Lycée de l'Albanais</h2>
+                    <p>Spécialité Systèmes d'Information et Numérique.</p>
+                </li>
+            </ol>
+        </section>
+        <section data-route="/projets" data-title="Projets">
+            <h1>Projets</h1>
+            <p>Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+        </section>
+        <section data-route="/contact" data-title="Contact">
+            <h1>Contact</h1>
+            <p>Un stage, une alternance ou un projet de site web ? Le plus simple est de m'écrire.</p>
+            <ul class="contact">
+                <li><a href="mailto:dgrs.antoine@gmail.com">dgrs.antoine@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/antoine-degeorges-6381673a0/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/Xznoow" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </section>
     </main>
 
-    <footer>© 2026 Degeorges-Antoine</footer>
+    <footer>© 2026 – Antoine Degeorges</footer>
 
     <script src="assets/script.js" defer></script>
 
