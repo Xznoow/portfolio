@@ -43,3 +43,32 @@ window.matchMedia('(min-width: 601px)').addEventListener('change', (event) => {
     fermerMenu();
   }
 });
+
+
+
+// ===== Navigation =====
+const pages = document.querySelectorAll('main section[data-route]');
+const liensNav = document.querySelectorAll('nav a');
+
+function afficherPage() {
+  const route = location.hash.slice(1) || '/';
+  const pageCible = [...pages].find((page) => page.dataset.route === route) || document.querySelector('section[data-route="/"]');
+
+  pages.forEach((page) => {
+    page.classList.toggle('active', page === pageCible);
+  });
+
+  liensNav.forEach((lien) => {
+    if (lien.getAttribute('href') === '#' + route) {
+      lien.setAttribute('aria-current', 'page');
+    } else {
+      lien.removeAttribute('aria-current');
+    }
+  });
+
+  document.title = `${pageCible.dataset.title} – Antoine Degeorges`;
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener('hashchange', afficherPage);
+afficherPage();
