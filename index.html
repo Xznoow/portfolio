@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <header>
+    <header class="conteneur">
         <a href="#/" class="logo">Antoine<span>.D</span></a>
         <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
             <span></span>
@@ -20,78 +20,405 @@
         </button>
         <nav>
             <ul id="menu">
-                <li><a href="#/">Accueil</a></li>
                 <li><a href="#/parcours">Parcours</a></li>
                 <li><a href="#/projets">Projets</a></li>
+                <li><a href="#/freelance">Freelance</a></li>
                 <li><a href="#/contact">Contact</a></li>
             </ul>
         </nav>
-        <!-- À FAIRE : réactiver une fois assets/cv.pdf ajouté
-        <a href="assets/cv.pdf" target="_blank" rel="noopener">Mon CV</a>
-        -->
+        <!-- À FAIRE : réactiver une fois assets/cv.pdf ajouté -->
     </header>
 
     <main>
+        <!-- ===================== ACCUEIL ===================== -->
         <section data-route="/" data-title="Accueil">
-            <div class="entete">
-                <h1>Salut, moi c'est Antoine.</h1>
-                <p class="sous-titre">Étudiant en BUT Informatique, et déjà développeur web freelance.</p>
-                <p>J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+
+            <div class="heros conteneur">
+                <div>
+                    <h1>Salut, moi c'est Antoine.</h1>
+                    <p class="heros-role">Étudiant en BUT Informatique, et déjà <span class="accent">développeur web freelance.</span></p>
+                    <p class="heros-intro">J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+                    <div class="actions">
+                        <a href="#/contact" class="bouton bouton--plein">Me contacter <span class="fleche" aria-hidden="true">→</span></a>
+                        <a href="#/projets" class="bouton bouton--contour">Voir mes projets</a>
+                    </div>
+                </div>
+                <div class="portrait">
+                    <div class="portrait-cadre">
+                        <!-- À FAIRE : remplacer initiales photo-->
+                        <span class="portrait-initiales" aria-hidden="true">AD</span>
+                    </div>
+                    <p class="badge">
+                        <span class="badge-point"></span>
+                        En recherche de stage &amp; d'alternance
+                    </p>
+                </div>
             </div>
-            <a href="#/projets" class="btn">Voir mes projets</a>
+
+            <div class="bloc">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Avec quoi je travaille</h2>
+                    </div>
+                    <ul class="grille grille--tuiles">
+                        <li class="tuile"><span class="icone icone--html"></span>HTML</li>
+                        <li class="tuile"><span class="icone icone--css"></span>CSS</li>
+                        <li class="tuile"><span class="icone icone--javascript"></span>JavaScript</li>
+                        <li class="tuile"><span class="icone icone--php"></span>PHP</li>
+                        <li class="tuile"><span class="icone icone--git"></span>Git</li>
+                        <li class="tuile"><span class="icone icone--docker"></span>Docker</li>
+                        <li class="tuile"><span class="icone icone--nginx"></span>Nginx</li>
+                        <li class="tuile"><span class="icone icone--linux"></span>Linux</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bloc bloc--separe">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Deux casquettes, en même temps</h2>
+                    </div>
+                    <div class="grille grille--2 grille--separee">
+                        <div class="encart">
+                            <span class="icone icone--formation"></span>
+                            <h3>En formation</h3>
+                            <p>2e année de BUT Informatique à l'IUT d'Annecy, Université Savoie Mont Blanc : développement, bases de données, systèmes et réseaux, gestion de projet.</p>
+                            <a href="#/parcours" class="lien-fleche">Voir mon parcours</a>
+                        </div>
+                        <div class="encart">
+                            <span class="icone icone--serveur"></span>
+                            <h3>En production</h3>
+                            <p>Développeur web freelance : je conçois des sites pour des clients, je les publie sur un serveur que j'administre et je les fais évoluer.</p>
+                            <a href="#/freelance" class="lien-fleche">Voir mon activité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloc bloc--separe">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Projets</h2>
+                        <a href="#/projets" class="lien-fleche">Tous les projets</a>
+                    </div>
+                    <!-- Rempli par le JavaScript avec les 3 premiers projets du JSON -->
+                    <ul class="grille-projets" id="apercu-projets"></ul>
+                </div>
+            </div>
+
+            <div class="bloc">
+                <div class="conteneur">
+                    <div class="bande">
+                        <div>
+                            <h2>Un stage ou une alternance à proposer ?</h2>
+                            <p>Écrivez-moi, je serai ravi d'en parler avec vous.</p>
+                        </div>
+                        <a href="#/contact" class="bouton bouton--plein">Me contacter <span class="fleche" aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- ===================== PARCOURS ===================== -->
         <section data-route="/parcours" data-title="Parcours">
-            <div class="entete">
-                <h1>Parcours</h1>
-                <p>Ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
+            <div class="conteneur">
+                <div class="entete">
+                    <h1>Parcours</h1>
+                    <p>Je suis en 2e année de BUT Informatique à l'IUT d'Annecy. En parallèle, je développe des sites en freelance : ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
+                </div>
             </div>
-            <ol class="parcours">
-                <li>
-                    <p><time datetime="2026">2026</time> – aujourd'hui</p>
-                    <h2>BUT Informatique – 2e année</h2>
-                    <p>Parcours Réalisation d'applications, à la recherche d'un stage.</p>
-                    <p>IUT d'Annecy.</p>
-                </li>
-                <li>
-                    <p><time datetime="2026">2026</time></p>
-                    <h2>Développeur web freelance</h2>
-                    <p>Création, hébergement et maintenance de sites web pour des clients.</p>
-                </li>
-                <li>
-                    <p><time datetime="2025">2025</time> – <time datetime="2026">2026</time></p>
-                    <h2>BUT Informatique – 1re année</h2>
-                    <p>IUT d'Annecy.</p>
-                </li>
-                <li>
-                    <p><time datetime="2025">2025</time></p>
-                    <h2>Baccalauréat technologique – Lycée de l'Albanais</h2>
-                    <p>Spécialité Systèmes d'Information et Numérique.</p>
-                </li>
-            </ol>
+
+            <div class="bloc bloc--haut-reduit">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Ce que je cherche</h2>
+                    </div>
+                    <ul class="grille grille--2">
+                        <li class="carte">
+                            <span class="icone icone--calendrier"></span>
+                            <h3>Stage de 2e année</h3>
+                            <p class="carte-sous-titre">Fin de 2e année, 2027</p>
+                            <p class="carte-detail">Dates : avril à juin 2027</p>
+                        </li>
+                        <li class="carte">
+                            <span class="icone icone--mallette"></span>
+                            <h3>Alternance</h3>
+                            <p class="carte-sous-titre">3e année de BUT, 2027 – 2028</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bloc bloc--separe">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Formation et expérience</h2>
+                    </div>
+                    <ol class="parcours">
+                        <li>
+                            <p class="parcours-date"><time datetime="2027">2027</time> – <time datetime="2028">2028</time></p>
+                            <div>
+                                <h3>BUT Informatique – 3e année <span class="etiquette">À venir</span></h3>
+                                <p>Année que je souhaite faire en alternance.</p>
+                            </div>
+                        </li>
+                        <li class="parcours-actuel">
+                            <p class="parcours-date"><time datetime="2026">2026</time> – <time datetime="2027">2027</time></p>
+                            <div>
+                                <h3>BUT Informatique – 2e année <span class="etiquette etiquette--accent">En cours</span></h3>
+                                <p>IUT d'Annecy. Stage en entreprise en fin d'année.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="parcours-date"><time datetime="2025">2025</time> – <time datetime="2026">2026</time></p>
+                            <div>
+                                <h3>BUT Informatique – 1re année <span class="etiquette">Terminée</span></h3>
+                                <p>IUT d'Annecy.</p>
+                            </div>
+                        </li>
+                        <li class="parcours-parallele">
+                            <p class="parcours-date">Depuis <time datetime="2026-10">octobre 2026</time></p>
+                            <div>
+                                <h3>Développeur web freelance <span class="etiquette etiquette--accent">En parallèle</span></h3>
+                                <p>Création et mise en ligne de sites pour des clients, en même temps que mes études.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="parcours-date"><time datetime="2025">2025</time></p>
+                            <div>
+                                <h3>Baccalauréat technologique – Lycée de l'Albanais <span class="etiquette">Obtenu</span></h3>
+                                <p>Spécialité Systèmes d'Information et Numérique.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bloc bloc--separe">
+                <div class="conteneur">
+                    <div class="bloc-entete bloc-entete--colonne">
+                        <h2>Ce que couvre le BUT Informatique</h2>
+                        <p>Le diplôme est construit autour de six compétences, travaillées pendant les trois ans. Mon parcours de spécialité : <strong>Réalisation d'applications</strong>.</p>
+                    </div>
+                    <ul class="grille grille--3">
+                        <li class="encart encart--trait">
+                            <h3>Réaliser</h3>
+                            <p class="encart-sous-titre">Réaliser un développement d'application</p>
+                            <p>Concevoir, coder, tester et intégrer une solution informatique.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3>Optimiser</h3>
+                            <p class="encart-sous-titre">Optimiser des applications</p>
+                            <p>Choisir les bonnes structures de données et les bons algorithmes, mesurer et améliorer.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3>Administrer</h3>
+                            <p class="encart-sous-titre">Administrer des systèmes communicants</p>
+                            <p>Installer, configurer et sécuriser des machines, des réseaux et des services.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3>Gérer</h3>
+                            <p class="encart-sous-titre">Gérer des données de l'information</p>
+                            <p>Concevoir des bases de données, les interroger et exploiter les données.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3>Conduire</h3>
+                            <p class="encart-sous-titre">Conduire un projet</p>
+                            <p>Analyser un besoin, planifier un projet et en suivre l'avancement.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3>Collaborer</h3>
+                            <p class="encart-sous-titre">Travailler dans une équipe informatique</p>
+                            <p>S'intégrer dans une équipe, communiquer et partager le travail.</p>
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <p>Langages vus en cours :</p>
+                        <ul class="pastilles">
+                            <li>Python</li>
+                            <li>PostgreSQL</li>
+                            <li>C#</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>PHP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloc">
+                <div class="conteneur">
+                    <div class="bande">
+                        <div>
+                            <h2>Un stage ou une alternance à proposer ?</h2>
+                            <p>Écrivez-moi, je serai ravi d'en parler avec vous.</p>
+                        </div>
+                        <a href="#/contact" class="bouton bouton--plein">Me contacter <span class="fleche" aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- ===================== PROJETS ===================== -->
         <section data-route="/projets" data-title="Projets">
-            <div class="entete">
-                <h1>Projets</h1>
-                <p>Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+            <div class="conteneur">
+                <div class="entete">
+                    <h1>Projets</h1>
+                    <p>Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+                </div>
+                <!-- Rempli par le JavaScript avec tous les projets du JSON -->
+                <ul class="grille-projets" id="liste-projets"></ul>
             </div>
-            <ul class="grille-projets" id="liste-projets"></ul>
         </section>
-        <section data-route="/contact" data-title="Contact">
-            <div class="entete">
-                <h1>Contact</h1>
-                <p>Un stage, une alternance ou un projet de site web ? Le plus simple est de m'écrire.</p>
+
+        <!-- ===================== FREELANCE ===================== -->
+        <section data-route="/freelance" data-title="Freelance">
+            <div class="conteneur">
+                <div class="entete">
+                    <h1>Développeur web freelance</h1>
+                    <p>En parallèle de mes études, je réalise des sites web pour des clients : de la première discussion jusqu'à la mise en ligne, puis les mises à jour.</p>
+                    <dl class="faits">
+                        <div>
+                            <dt>Depuis</dt>
+                            <dd><time datetime="2026-10">Octobre 2026</time></dd>
+                        </div>
+                        <div>
+                            <dt>Statut</dt>
+                            <dd>Micro-entrepreneur</dd>
+                        </div>
+                        <div>
+                            <dt>Basé à</dt>
+                            <dd>Annecy, Haute-Savoie (74)</dd>
+                        </div>
+                    </dl>
+                </div>
             </div>
-            <ul class="contact">
-                <li><a href="mailto:dgrs.antoine@gmail.com">dgrs.antoine@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/antoine-degeorges-6381673a0/" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://github.com/Xznoow" target="_blank" rel="noopener">GitHub</a></li>
-            </ul>
+
+            <div class="bloc bloc--haut-reduit">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2>Comment je travaille</h2>
+                    </div>
+                    <ol class="etapes">
+                        <li>
+                            <h3>Comprendre le besoin</h3>
+                            <p>On échange sur le projet : à quoi doit servir le site, pour qui, avec quel contenu.</p>
+                        </li>
+                        <li>
+                            <h3>Concevoir et développer</h3>
+                            <p>Je construis le site en HTML, CSS et JavaScript, rapide et lisible sur téléphone comme sur ordinateur.</p>
+                        </li>
+                        <li>
+                            <h3>Mettre en ligne</h3>
+                            <p>Je publie le site sur un serveur que j'administre, avec Nginx et Docker.</p>
+                        </li>
+                        <li>
+                            <h3>Faire vivre le site</h3>
+                            <p>Les modifications passent par Git et sont en ligne en une commande.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bloc bloc--separe">
+                <div class="conteneur grille grille--2 grille--large">
+                    <div>
+                        <h2>Ce que le freelance m'apporte</h2>
+                        <p class="texte-discret">Pour une entreprise qui m'accueille en stage ou en alternance, c'est l'assurance de travailler avec quelqu'un qui a déjà livré des projets en conditions réelles.</p>
+                        <a href="#/projets" class="lien-fleche">Voir les projets</a>
+                    </div>
+                    <ul class="liste-coches">
+                        <li>
+                            <h3>Un projet de bout en bout</h3>
+                            <p>Du premier échange avec le client jusqu'au site en ligne, je m'occupe de chaque étape.</p>
+                        </li>
+                        <li>
+                            <h3>La mise en production</h3>
+                            <p>Serveur, conteneurs, configuration Nginx, mises à jour : je déploie moi-même ce que je code.</p>
+                        </li>
+                        <li>
+                            <h3>De vrais clients</h3>
+                            <p>Des demandes concrètes, des délais et des retours à intégrer.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bloc">
+                <div class="conteneur">
+                    <div class="bande">
+                        <div>
+                            <h2>Un projet de site ?</h2>
+                            <p>Présentez-moi votre projet en quelques lignes, je reviens vers vous pour en discuter.</p>
+                        </div>
+                        <a href="#/contact" class="bouton bouton--plein">Me contacter <span class="fleche" aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section data-route="/contact" data-title="Contact">
+            <div class="conteneur">
+                <div class="entete">
+                    <h1>Contact</h1>
+                    <p>Un stage, une alternance ou un projet de site ? Le plus simple est de m'écrire.</p>
+                </div>
+            </div>
+
+            <div class="bloc bloc--haut-reduit">
+                <div class="conteneur grille grille--2 grille--large">
+                    <div class="carte carte--grande">
+                        <p class="carte-etiquette"><span class="icone icone--mail"></span>Email</p>
+                        <p class="email-grand">dgrs.antoine@gmail.com</p>
+                        <div class="actions">
+                            <a href="mailto:dgrs.antoine@gmail.com" class="bouton bouton--plein">Écrire un email <span class="fleche" aria-hidden="true">→</span></a>
+                            <button type="button" class="bouton bouton--contour" data-copier="dgrs.antoine@gmail.com">
+                                <span class="icone icone--copier"></span>
+                                <span class="bouton-texte" aria-live="polite">Copier l'adresse</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <dl class="lignes-infos">
+                            <div>
+                                <dt><span class="icone icone--lieu"></span>Localisation</dt>
+                                <dd>Annecy, Haute-Savoie (74)</dd>
+                            </div>
+                            <div>
+                                <dt><span class="icone icone--github"></span>GitHub</dt>
+                                <dd><a href="https://github.com/Xznoow" target="_blank" rel="noopener">Xznoow</a></dd>
+                            </div>
+                            <div>
+                                <dt><span class="icone icone--linkedin"></span>LinkedIn</dt>
+                                <dd><a href="https://www.linkedin.com/in/antoine-degeorges-6381673a0/" target="_blank" rel="noopener">Antoine Degeorges</a></dd>
+                            </div>
+                        </dl>
+
+                        <h2 class="titre-petit">Disponibilités</h2>
+                        <dl class="lignes-infos">
+                            <div>
+                                <dt><span class="icone icone--calendrier"></span>Stage</dt>
+                                <dd>Avril à juin 2027</dd>
+                            </div>
+                            <div>
+                                <dt><span class="icone icone--mallette"></span>Alternance</dt>
+                                <dd>3e année de BUT, 2027 – 2028</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>© 2026 – Antoine Degeorges</footer>
+    <footer>
+        <div class="conteneur">
+            <p>© 2026 Antoine Degeorges · Annecy</p>
+        </div>
+    </footer>
 
     <script src="assets/script.js" defer></script>
-
 </body>
 </html>

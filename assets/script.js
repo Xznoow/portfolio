@@ -46,7 +46,8 @@ window.matchMedia('(min-width: 601px)').addEventListener('change', (event) => {
 
 // ===== Navigation =====
 const pages = document.querySelectorAll('main section[data-route]');
-const liensNav = document.querySelectorAll('nav a');
+// Les liens du menu + le logo (qui mène à l'accueil)
+const liensNav = document.querySelectorAll('nav a, .logo');
 
 function afficherPage() {
   const route = location.hash.slice(1) || '/';
@@ -72,27 +73,39 @@ window.addEventListener('hashchange', afficherPage);
 afficherPage();
 
 // ===== Projets =====
-async function chargerProjets() {
-  const conteneur = document.querySelector('#liste-projets');
+const listeProjets = document.querySelector('#liste-projets');   // page Projets : tous
+const apercuProjets = document.querySelector('#apercu-projets'); // accueil : les 3 premiers
 
+async function chargerProjets() {
   try {
     const reponse = await fetch('data/projets.json');
     if (!reponse.ok) throw new Error(`Erreur HTTP ${reponse.status}`);
     const projets = await reponse.json();
 
+    // Page Projets : titres en <h2> (la page a un <h1> au-dessus)
     projets.forEach((projet) => {
-      conteneur.appendChild(creerCarte(projet));
+      listeProjets.append(creerCarte(projet, 'h2'));
+    });
+
+    // Accueil : titres en <h3> (le bloc a déjà un <h2> « Projets »)
+    projets.slice(0, 3).forEach((projet) => {
+      apercuProjets.append(creerCarte(projet, 'h3'));
     });
   } catch (erreur) {
-    // Le message va dans un <li> : un <ul> ne doit contenir que des <li>
-    const message = document.createElement('li');
-    message.textContent = 'Impossible de charger les projets.';
-    conteneur.replaceChildren(message);
+    afficherErreur(listeProjets);
+    afficherErreur(apercuProjets);
     console.error(erreur);
   }
 }
 
-function creerCarte(projet) {
+// Le message va dans un <li> : un <ul> ne doit contenir que des <li>
+function afficherErreur(liste) {
+  const message = document.createElement('li');
+  message.textContent = 'Impossible de charger les projets.';
+  liste.replaceChildren(message);
+}
+
+function creerCarte(projet, niveauTitre) {
   const carte = document.createElement('li');
   carte.className = 'carte-projet';
 
@@ -110,7 +123,7 @@ function creerCarte(projet) {
   const corps = document.createElement('div');
   corps.className = 'projet-corps';
 
-  const titre = document.createElement('h2');
+  const titre = document.createElement(niveauTitre);
   titre.className = 'projet-titre';
   titre.textContent = projet.titre;
 
@@ -162,3 +175,24 @@ function creerCarte(projet) {
 }
 
 chargerProjets();
+
+// ===== Copier l'adresse email =====
+// Tout bouton avec un attribut data-copier copie sa valeur dans le presse-papiers
+document.querySelectorAll('[data-copier]').forEach((bouton) => {
+  const texte = bouton.querySelector('.bouton-texte');
+  const texteDeBase = texte.textContent;
+
+  bouton.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(bouton.dataset.copier);
+      texte.textContent = 'Adresse copiée !';
+    } catch {
+      // Le presse-papiers peut être refusé (page non sécurisée, permission...)
+      texte.textContent = 'Copie impossible';
+    }
+    // On remet le texte d'origine au bout de 2 secondes
+    setTimeout(() => {
+      texte.textContent = texteDeBase;
+    }, 2000);
+  });
+});
