@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
     <header>
         <a href="#/" class="logo">Antoine<span>.D</span></a>
         <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
@@ -34,14 +33,18 @@
 
     <main>
         <section data-route="/" data-title="Accueil">
-            <h1>Salut, moi c'est Antoine.</h1>
-            <p class="sous-titre">Étudiant en BUT Informatique, et déjà développeur web freelance.</p>
-            <p>J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+            <div class="entete">
+                <h1>Salut, moi c'est Antoine.</h1>
+                <p class="sous-titre">Étudiant en BUT Informatique, et déjà développeur web freelance.</p>
+                <p>J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+            </div>
             <a href="#/projets" class="btn">Voir mes projets</a>
         </section>
         <section data-route="/parcours" data-title="Parcours">
-            <h1>Parcours</h1>
-            <p>Ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
+            <div class="entete">
+                <h1>Parcours</h1>
+                <p>Ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
+            </div>
             <ol class="parcours">
                 <li>
                     <p><time datetime="2026">2026</time> – aujourd'hui</p>
@@ -67,12 +70,17 @@
             </ol>
         </section>
         <section data-route="/projets" data-title="Projets">
-            <h1>Projets</h1>
-            <p>Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+            <div class="entete">
+                <h1>Projets</h1>
+                <p>Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+            </div>
+            <ul class="grille-projets" id="liste-projets"></ul>
         </section>
         <section data-route="/contact" data-title="Contact">
-            <h1>Contact</h1>
-            <p>Un stage, une alternance ou un projet de site web ? Le plus simple est de m'écrire.</p>
+            <div class="entete">
+                <h1>Contact</h1>
+                <p>Un stage, une alternance ou un projet de site web ? Le plus simple est de m'écrire.</p>
+            </div>
             <ul class="contact">
                 <li><a href="mailto:dgrs.antoine@gmail.com">dgrs.antoine@gmail.com</a></li>
                 <li><a href="https://www.linkedin.com/in/antoine-degeorges-6381673a0/" target="_blank" rel="noopener">LinkedIn</a></li>

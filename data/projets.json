@@ -1,0 +1,22 @@
+[
+  {
+    "titre": "Seven-Stock",
+    "description": "Application web collaborative de gestion de stock.",
+    "categorie": "Personnel",
+    "annee" : "2025-2026",
+    "technos": ["HTML", "CSS", "PHP", "JavaScript"],
+    "image": "assets/img/projet-1.png",
+    "lien": "127.0.0.1",
+    "code": "https://github.com/Xznoow"
+  },
+  {
+    "titre": "Seven-Board",
+    "description": "Application web PinBoard.",
+    "categorie": "Personnel",
+    "annee" : "2025-2026",
+    "technos": ["HTML", "CSS", "PHP", "JavaScript"],
+    "image": "assets/img/projet-2.png",
+    "lien": "",
+    "code": "https://github.com/Xznoow"
+  }
+]
