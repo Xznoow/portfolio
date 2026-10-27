@@ -316,14 +316,10 @@ img{
 .icone--mail        { --icone: url("img/logo/mail.svg"); }
 .icone--formation   { --icone: url("img/logo/graduation-cap.svg"); }
 .icone--serveur     { --icone: url("img/logo/server.svg"); }
-.icone--code        { --icone: url("img/logo/code-xml.svg"); }
-.icone--globe       { --icone: url("img/logo/globe.svg"); }
-.icone--outil       { --icone: url("img/logo/wrench.svg"); }
 .icone--calendrier  { --icone: url("img/logo/calendar.svg"); }
 .icone--mallette    { --icone: url("img/logo/briefcase.svg"); }
 .icone--lieu        { --icone: url("img/logo/map-pin.svg"); }
 .icone--copier      { --icone: url("img/logo/copy.svg"); }
-.icone--coche       { --icone: url("img/logo/check.svg"); }
 
 .bouton .icone{
   width: 1.1rem;
