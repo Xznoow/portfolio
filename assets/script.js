@@ -40,6 +40,14 @@ window.matchMedia('(min-width: 601px)').addEventListener('change', (event) => {
   }
 });
 
+// ===== Bordure du header au défilement =====
+function majBordureHeader() {
+  header.classList.toggle('defile', window.scrollY > 0);
+}
+
+window.addEventListener('scroll', majBordureHeader, { passive: true });
+majBordureHeader();
+
 // ===== Navigation =====
 const pages = document.querySelectorAll('main section[data-route]');
 const liensNav = document.querySelectorAll('nav a, .logo');

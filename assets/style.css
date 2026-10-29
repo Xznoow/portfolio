@@ -705,10 +705,25 @@ img{
    ========================================================================== */
 
 header{
+  position: sticky;
+  top: 0;
+  z-index: 10;                                
+  border-bottom: 1px solid transparent;
+  background: rgb(13 10 26 / 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease;
+}
+
+header.defile{
+  border-bottom-color: var(--filet);
+}
+
+.header-barre{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 1.5rem;
+  padding-block: 1.25rem;
 }
 
 .logo{
@@ -1096,7 +1111,7 @@ main section.active{
 /* Mobile */
 @media (max-width: 600px){
   /* Header : menu burger */
-  header{
+  .header-barre{
     flex-wrap: wrap;
   }
 
