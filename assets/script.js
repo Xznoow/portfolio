@@ -15,7 +15,6 @@ function fermerMenu() {
   burger.setAttribute('aria-label', 'Ouvrir le menu');
 }
 
-// Clic sur le burger : ouvre si fermé, ferme si ouvert
 burger.addEventListener('click', () => {
   if (header.classList.contains('ouvert')) {
     fermerMenu();
@@ -24,12 +23,10 @@ burger.addEventListener('click', () => {
   }
 });
 
-// Clic sur un lien : on referme le menu pour voir la page
 liensMenu.forEach((lien) => {
   lien.addEventListener('click', fermerMenu);
 });
 
-// Touche Échap : on referme et on remet le focus sur le burger
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && header.classList.contains('ouvert')) {
     fermerMenu();
@@ -37,7 +34,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Si l'écran repasse en grand (rotation du téléphone...), on referme
 window.matchMedia('(min-width: 601px)').addEventListener('change', (event) => {
   if (event.matches) {
     fermerMenu();
@@ -46,7 +42,6 @@ window.matchMedia('(min-width: 601px)').addEventListener('change', (event) => {
 
 // ===== Navigation =====
 const pages = document.querySelectorAll('main section[data-route]');
-// Les liens du menu + le logo (qui mène à l'accueil)
 const liensNav = document.querySelectorAll('nav a, .logo');
 
 function afficherPage() {
@@ -82,12 +77,10 @@ async function chargerProjets() {
     if (!reponse.ok) throw new Error(`Erreur HTTP ${reponse.status}`);
     const projets = await reponse.json();
 
-    // Page Projets : titres en <h2> (la page a un <h1> au-dessus)
     projets.forEach((projet) => {
       listeProjets.append(creerCarte(projet, 'h2'));
     });
 
-    // Accueil : titres en <h3> (le bloc a déjà un <h2> « Projets »)
     projets.slice(0, 3).forEach((projet) => {
       apercuProjets.append(creerCarte(projet, 'h3'));
     });
@@ -98,7 +91,6 @@ async function chargerProjets() {
   }
 }
 
-// Le message va dans un <li> : un <ul> ne doit contenir que des <li>
 function afficherErreur(liste) {
   const message = document.createElement('li');
   message.textContent = 'Impossible de charger les projets.';
@@ -177,7 +169,6 @@ function creerCarte(projet, niveauTitre) {
 chargerProjets();
 
 // ===== Copier l'adresse email =====
-// Tout bouton avec un attribut data-copier copie sa valeur dans le presse-papiers
 document.querySelectorAll('[data-copier]').forEach((bouton) => {
   const texte = bouton.querySelector('.bouton-texte');
   const texteDeBase = texte.textContent;
@@ -187,10 +178,8 @@ document.querySelectorAll('[data-copier]').forEach((bouton) => {
       await navigator.clipboard.writeText(bouton.dataset.copier);
       texte.textContent = 'Adresse copiée !';
     } catch {
-      // Le presse-papiers peut être refusé (page non sécurisée, permission...)
       texte.textContent = 'Copie impossible';
     }
-    // On remet le texte d'origine au bout de 2 secondes
     setTimeout(() => {
       texte.textContent = texteDeBase;
     }, 2000);
