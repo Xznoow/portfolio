@@ -1,22 +1,12 @@
 [
-  {
-    "titre": "Seven-Stock",
-    "description": "Application web collaborative de gestion de stock.",
+    {
+    "titre": "Arbre-généalogique",
+    "description": "Application web de création d'arbre généalogique.",
     "categorie": "Personnel",
     "annee" : "2025-2026",
-    "technos": ["HTML", "CSS", "PHP", "JavaScript"],
-    "image": "assets/img/projet/projet-1.png",
-    "lien": "127.0.0.1",
-    "code": "https://github.com/Xznoow"
-  },
-  {
-    "titre": "Seven-Board",
-    "description": "Application web PinBoard.",
-    "categorie": "Personnel",
-    "annee" : "2025-2026",
-    "technos": ["HTML", "CSS", "PHP", "JavaScript"],
-    "image": "assets/img/projet/projet-2.png",
-    "lien": "",
-    "code": "https://github.com/Xznoow"
+    "technos": ["HTML", "CSS", "JavaScript"],
+    "image": "assets/img/projet/arbre-genealogique.png",
+    "lien": "https://xznoow.github.io/arbre-genealogique/",
+    "code": "https://github.com/Xznoow/arbre-genealogique"
   }
 ]
