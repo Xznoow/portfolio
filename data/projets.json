@@ -1,5 +1,14 @@
 [
-    {
+  {
+    "titre": "MineBot-Panel",
+    "description": "Panel web local pour piloter des bots Minecraft (en cour de developpement). Fonctionnalités actuelle : chat en temps réel, envoi de messages et connexion aux serveurs jusqu'à la 26.3 via ViaProxy.",
+    "categorie": "Personnel",
+    "annee": "2026-2027",
+    "technos": ["JavaScript", "Node.js", "Socket.IO", "HTML", "CSS"],
+    "image": "assets/img/projet/minebot-panel.png",
+    "code": "https://github.com/Xznoow/minebot-panel"
+  },
+  {
     "titre": "Arbre-généalogique",
     "description": "Application web de création d'arbre généalogique.",
     "categorie": "Personnel",
