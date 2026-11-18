@@ -1,25 +1,52 @@
 // ===== Langue =====
-// Section placée en premier : les autres sections utilisent traduire().
+const LANGUE_BASE = 'fr';
 const LANGUES = ['fr', 'en'];
 const choixLangue = document.querySelector('.choix-langue');
 const boutonsLangue = choixLangue.querySelectorAll('button[data-langue]');
-let langueActuelle = 'fr';
+let langueActuelle = LANGUE_BASE;
 let traductions = {};
 
+// Mémorise le texte français d'origine, pour pouvoir y revenir
+const textesOrigine = new Map();   // élément → texte
+const attributsOrigine = new Map(); // élément → { attribut: valeur }
+
+function memoriserTextesOrigine() {
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    textesOrigine.set(element, element.textContent);
+  });
+
+  document.querySelectorAll('[data-i18n-attr]').forEach((element) => {
+    const valeurs = {};
+    element.dataset.i18nAttr.split(';').forEach((paire) => {
+      const [attribut] = paire.split(':').map((morceau) => morceau.trim());
+      valeurs[attribut] = element.getAttribute(attribut);
+    });
+    attributsOrigine.set(element, valeurs);
+  });
+}
+
+memoriserTextesOrigine();
+
 function choisirLangueInitiale() {
-  // 1. Choix déjà fait par le visiteur
+  // Choix déjà fait par le visiteur
   const langueEnregistree = localStorage.getItem('langue');
   if (LANGUES.includes(langueEnregistree)) return langueEnregistree;
 
-  // 2. Paramètre dans l'URL (?lang=en)
+  // Paramètre dans l'URL (?lang=en)
   const langueUrl = new URLSearchParams(location.search).get('lang');
   if (LANGUES.includes(langueUrl)) return langueUrl;
 
-  // 3. Langue du navigateur
+  // Langue du navigateur
   return navigator.language.startsWith('fr') ? 'fr' : 'en';
 }
 
 async function chargerLangue(lang) {
+  // Le français est déjà dans la page : rien à charger
+  if (lang === LANGUE_BASE) {
+    traductions = {};
+    return;
+  }
+
   const reponse = await fetch(`data/lang/${lang}.json`);
   if (!reponse.ok) throw new Error(`Erreur HTTP ${reponse.status}`);
   traductions = await reponse.json();
@@ -55,18 +82,20 @@ function texteLocalise(valeur) {
 }
 
 function appliquerTraductions() {
+  const enFrancais = langueActuelle === LANGUE_BASE;
+
   // Textes : data-i18n="cle"
   document.querySelectorAll('[data-i18n]').forEach((element) => {
-    const texte = traduire(element.dataset.i18n);
-    if (texte !== null) element.textContent = texte;
+    const texte = enFrancais ? textesOrigine.get(element) : traduire(element.dataset.i18n);
+    if (texte != null) element.textContent = texte;
   });
 
   // Attributs : data-i18n-attr="attribut:cle" (plusieurs séparés par ;)
   document.querySelectorAll('[data-i18n-attr]').forEach((element) => {
     element.dataset.i18nAttr.split(';').forEach((paire) => {
       const [attribut, cle] = paire.split(':').map((morceau) => morceau.trim());
-      const texte = traduire(cle);
-      if (texte !== null) element.setAttribute(attribut, texte);
+      const texte = enFrancais ? attributsOrigine.get(element)?.[attribut] : traduire(cle);
+      if (texte != null) element.setAttribute(attribut, texte);
     });
   });
 
@@ -209,14 +238,12 @@ afficherPage();
 const sommaire = document.querySelector('.sommaire');
 const liensSommaire = sommaire.querySelectorAll('a[data-section]');
 
-// Hauteur du header en variable CSS : sert à coller le sommaire juste dessous
 function majHauteurHeader() {
   document.documentElement.style.setProperty('--hauteur-header', `${header.offsetHeight}px`);
 }
 window.addEventListener('resize', majHauteurHeader);
 majHauteurHeader();
 
-// Clic : défilement vers la section (les ancres classiques casseraient le routeur par hash)
 liensSommaire.forEach((lien) => {
   lien.addEventListener('click', (event) => {
     event.preventDefault();
@@ -224,14 +251,12 @@ liensSommaire.forEach((lien) => {
   });
 });
 
-// Met en évidence la section en cours de lecture
 function activerLienSommaire(id) {
   liensSommaire.forEach((lien) => {
     const actif = lien.dataset.section === id;
     lien.classList.toggle('actif', actif);
     if (actif) {
       lien.setAttribute('aria-current', 'true');
-      // Sur mobile, le sommaire défile horizontalement : on garde le lien actif visible
       const liste = sommaire.querySelector('ul');
       liste.scrollTo({ left: lien.offsetLeft - 16, behavior: 'smooth' });
     } else {
@@ -352,13 +377,21 @@ function creerCarte(projet, niveauTitre) {
 chargerProjets();
 
 // ===== Compétences et langues =====
-// Les données sont dans data/competences.json : pour ajouter une compétence
-// ou changer un niveau, il suffit de modifier ce fichier.
+// données charger depuis data/competences.json
 const listeCompetences = document.querySelector('#liste-competences');
 const listeLangues = document.querySelector('#liste-langues');
 const legendeNiveaux = document.querySelector('#legende-niveaux');
 const NIVEAU_MAX = 6;
 const ECHELLE_LANGUES = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6, natif: 6 };
+const NIVEAUX_LANGUES_FR = {
+  natif: 'Langue maternelle',
+  A1: 'A1 – Débutant',
+  A2: 'A2 – Élémentaire',
+  B1: 'B1 – Intermédiaire',
+  B2: 'B2 – Intermédiaire avancé',
+  C1: 'C1 – Avancé',
+  C2: 'C2 – Maîtrise',
+};
 let competences = null;
 
 async function chargerCompetences() {
@@ -372,7 +405,6 @@ async function chargerCompetences() {
   }
 }
 
-// Jauge en segments : creerJauge(3, 6, 'Intermédiaire') → ■■■□□□
 function creerJauge(valeur, max, libelle) {
   const jauge = document.createElement('span');
   jauge.className = 'jauge';
@@ -394,7 +426,6 @@ function libelleNiveau(niveau) {
 }
 
 function afficherCompetences() {
-  // Légende : 1 Débutant · 2 Notions · … · 6 Expert
   const elementsLegende = [];
   for (let niveau = 1; niveau <= NIVEAU_MAX; niveau++) {
     const item = document.createElement('span');
@@ -439,7 +470,7 @@ function afficherCompetences() {
     const titre = document.createElement('h3');
     titre.textContent = texteLocalise(langue.nom);
 
-    const libelle = t(`langues.niveaux.${langue.niveau}`, langue.niveau);
+    const libelle = t(`langues.niveaux.${langue.niveau}`, NIVEAUX_LANGUES_FR[langue.niveau] ?? langue.niveau);
     const niveau = document.createElement('p');
     niveau.className = 'carte-sous-titre';
     niveau.textContent = libelle;
