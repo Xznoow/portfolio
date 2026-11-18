@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "description": "Antoine Degeorges, étudiant en BUT Informatique à Annecy et développeur web freelance. Découvrez mon parcours et mes projets."
+  },
+  "pages": {
+    "accueil": "Accueil",
+    "parcours": "Parcours",
+    "projets": "Projets",
+    "freelance": "Freelance",
+    "contact": "Contact"
+  },
+  "aria": {
+    "choixLangue": "Choix de la langue",
+    "ouvrirMenu": "Ouvrir le menu",
+    "fermerMenu": "Fermer le menu"
+  },
+  "nav": {
+    "parcours": "Parcours",
+    "projets": "Projets",
+    "freelance": "Freelance",
+    "contact": "Contact"
+  },
+  "commun": {
+    "meContacter": "Me contacter",
+    "bandeStageTitre": "Un stage ou une alternance à proposer ?",
+    "bandeStageTexte": "Écrivez-moi, je serai ravi d'en parler avec vous."
+  },
+  "accueil": {
+    "titre": "Salut, moi c'est Antoine.",
+    "role": "Étudiant en BUT Informatique, et déjà ",
+    "roleAccent": "développeur web freelance.",
+    "intro": "J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.",
+    "voirProjets": "Voir mes projets",
+    "badge": "En recherche de stage & d'alternance",
+    "outilsTitre": "Avec quoi je travaille",
+    "casquettesTitre": "Deux casquettes, en même temps",
+    "formationTitre": "En formation",
+    "formationTexte": "2e année de BUT Informatique à l'IUT d'Annecy, Université Savoie Mont Blanc : développement, bases de données, systèmes et réseaux, gestion de projet.",
+    "formationLien": "Voir mon parcours",
+    "productionTitre": "En production",
+    "productionTexte": "Développeur web freelance : je conçois des sites pour des clients, je les publie sur un serveur que j'administre et je les fais évoluer.",
+    "productionLien": "Voir mon activité",
+    "projetsTitre": "Projets",
+    "projetsLien": "Tous les projets"
+  },
+  "parcours": {
+    "titre": "Parcours",
+    "intro": "Je suis en 2e année de BUT Informatique à l'IUT d'Annecy. En parallèle, je développe des sites en freelance : ce que j'apprends en cours, je l'applique sur de vrais projets.",
+    "chercheTitre": "Ce que je cherche",
+    "stageTitre": "Stage de 2e année",
+    "stageSousTitre": "Fin de 2e année, 2027",
+    "stageDates": "Dates : avril à juin 2027",
+    "alternanceTitre": "Alternance",
+    "alternanceSousTitre": "3e année de BUT, 2027 – 2028",
+    "timelineTitre": "Formation et expérience",
+    "but3Titre": "BUT Informatique – 3e année",
+    "etiquettes": {
+      "aVenir": "À venir",
+      "enCours": "En cours",
+      "terminee": "Terminée",
+      "parallele": "En parallèle",
+      "obtenu": "Obtenu"
+    },
+    "but3Texte": "Année que je souhaite faire en alternance.",
+    "but2Titre": "BUT Informatique – 2e année",
+    "but2Texte": "IUT d'Annecy. Stage en entreprise en fin d'année.",
+    "but1Titre": "BUT Informatique – 1re année",
+    "but1Texte": "IUT d'Annecy.",
+    "depuis": "Depuis",
+    "freelanceDate": "octobre 2026",
+    "freelanceTitre": "Développeur web freelance",
+    "freelanceTexte": "Création et mise en ligne de sites pour des clients, en même temps que mes études.",
+    "bacTitre": "Baccalauréat technologique – Lycée de l'Albanais",
+    "bacTexte": "Spécialité Systèmes d'Information et Numérique.",
+    "butTitre": "Ce que couvre le BUT Informatique",
+    "butIntro": "Le diplôme est construit autour de six compétences, travaillées pendant les trois ans. Mon parcours de spécialité : ",
+    "butSpecialite": "Réalisation d'applications",
+    "competences": {
+      "realiser": {
+        "titre": "Réaliser",
+        "sousTitre": "Réaliser un développement d'application",
+        "texte": "Concevoir, coder, tester et intégrer une solution informatique."
+      },
+      "optimiser": {
+        "titre": "Optimiser",
+        "sousTitre": "Optimiser des applications",
+        "texte": "Choisir les bonnes structures de données et les bons algorithmes, mesurer et améliorer."
+      },
+      "administrer": {
+        "titre": "Administrer",
+        "sousTitre": "Administrer des systèmes communicants",
+        "texte": "Installer, configurer et sécuriser des machines, des réseaux et des services."
+      },
+      "gerer": {
+        "titre": "Gérer",
+        "sousTitre": "Gérer des données de l'information",
+        "texte": "Concevoir des bases de données, les interroger et exploiter les données."
+      },
+      "conduire": {
+        "titre": "Conduire",
+        "sousTitre": "Conduire un projet",
+        "texte": "Analyser un besoin, planifier un projet et en suivre l'avancement."
+      },
+      "collaborer": {
+        "titre": "Collaborer",
+        "sousTitre": "Travailler dans une équipe informatique",
+        "texte": "S'intégrer dans une équipe, communiquer et partager le travail."
+      }
+    },
+    "langagesTitre": "Langages vus en cours :"
+  },
+  "projets": {
+    "titre": "Projets",
+    "intro": "Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.",
+    "visiter": "Visiter le projet",
+    "code": "Voir le code",
+    "erreur": "Impossible de charger les projets."
+  },
+  "freelance": {
+    "titre": "Développeur web freelance",
+    "intro": "En parallèle de mes études, je réalise des sites web pour des clients : de la première discussion jusqu'à la mise en ligne, puis les mises à jour.",
+    "depuis": "Depuis",
+    "date": "Octobre 2026",
+    "statut": "Statut",
+    "statutValeur": "Micro-entrepreneur",
+    "base": "Basé à",
+    "lieu": "Annecy, Haute-Savoie (74)",
+    "methodeTitre": "Comment je travaille",
+    "etapes": {
+      "besoin": {
+        "titre": "Comprendre le besoin",
+        "texte": "On échange sur le projet : à quoi doit servir le site, pour qui, avec quel contenu."
+      },
+      "developper": {
+        "titre": "Concevoir et développer",
+        "texte": "Je construis le site en HTML, CSS et JavaScript, rapide et lisible sur téléphone comme sur ordinateur."
+      },
+      "enLigne": {
+        "titre": "Mettre en ligne",
+        "texte": "Je publie le site sur un serveur que j'administre, avec Nginx et Docker."
+      },
+      "fairevivre": {
+        "titre": "Faire vivre le site",
+        "texte": "Les modifications passent par Git et sont en ligne en une commande."
+      }
+    },
+    "apportTitre": "Ce que le freelance m'apporte",
+    "apportTexte": "Pour une entreprise qui m'accueille en stage ou en alternance, c'est l'assurance de travailler avec quelqu'un qui a déjà livré des projets en conditions réelles.",
+    "apportLien": "Voir les projets",
+    "apports": {
+      "boutEnBout": {
+        "titre": "Un projet de bout en bout",
+        "texte": "Du premier échange avec le client jusqu'au site en ligne, je m'occupe de chaque étape."
+      },
+      "production": {
+        "titre": "La mise en production",
+        "texte": "Serveur, conteneurs, configuration Nginx, mises à jour : je déploie moi-même ce que je code."
+      },
+      "clients": {
+        "titre": "De vrais clients",
+        "texte": "Des demandes concrètes, des délais et des retours à intégrer."
+      }
+    },
+    "bandeTitre": "Un projet de site ?",
+    "bandeTexte": "Présentez-moi votre projet en quelques lignes, je reviens vers vous pour en discuter."
+  },
+  "contact": {
+    "titre": "Contact",
+    "intro": "Un stage, une alternance ou un projet de site ? Le plus simple est de m'écrire.",
+    "email": "Email",
+    "ecrire": "Écrire un email",
+    "copier": "Copier l'adresse",
+    "localisation": "Localisation",
+    "lieu": "Annecy, Haute-Savoie (74)",
+    "dispoTitre": "Disponibilités",
+    "stage": "Stage",
+    "stageDates": "Avril à juin 2027",
+    "alternance": "Alternance",
+    "alternanceDates": "3e année de BUT, 2027 – 2028",
+    "copie": "Adresse copiée !",
+    "copieImpossible": "Copie impossible"
+  }
+}

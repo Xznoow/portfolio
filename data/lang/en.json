@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "description": "Antoine Degeorges, Computer Science student (BUT Informatique) in Annecy, France, and freelance web developer. Discover my background and my projects."
+  },
+  "pages": {
+    "accueil": "Home",
+    "parcours": "Resume",
+    "projets": "Projects",
+    "freelance": "Freelance",
+    "contact": "Contact"
+  },
+  "aria": {
+    "choixLangue": "Language selection",
+    "ouvrirMenu": "Open menu",
+    "fermerMenu": "Close menu"
+  },
+  "nav": {
+    "parcours": "Resume",
+    "projets": "Projects",
+    "freelance": "Freelance",
+    "contact": "Contact"
+  },
+  "commun": {
+    "meContacter": "Contact me",
+    "bandeStageTitre": "Have an internship or a work-study position to offer?",
+    "bandeStageTexte": "Drop me a line, I would be happy to talk about it."
+  },
+  "accueil": {
+    "titre": "Hi, I'm Antoine.",
+    "role": "Computer Science student, and already ",
+    "roleAccent": "a freelance web developer.",
+    "intro": "I'm 18, I live in Annecy, France, and I'm in my second year of BUT Informatique (Bachelor's Degree of Technology in Computer Science) at IUT d'Annecy. Alongside my studies, I build websites for clients. I am currently looking for an internship.",
+    "voirProjets": "See my projects",
+    "badge": "Looking for an internship & a work-study position",
+    "outilsTitre": "What I work with",
+    "casquettesTitre": "Two hats at the same time",
+    "formationTitre": "Studying",
+    "formationTexte": "Second year of BUT Informatique at IUT d'Annecy, Université Savoie Mont Blanc: software development, databases, systems and networks, project management.",
+    "formationLien": "See my background",
+    "productionTitre": "In production",
+    "productionTexte": "Freelance web developer: I design websites for clients, deploy them on a server I manage myself and keep them up to date.",
+    "productionLien": "See my business",
+    "projetsTitre": "Projects",
+    "projetsLien": "All projects"
+  },
+  "parcours": {
+    "titre": "Resume",
+    "intro": "I am in my second year of BUT Informatique at IUT d'Annecy. At the same time, I build websites as a freelancer: what I learn in class, I apply to real projects.",
+    "chercheTitre": "What I'm looking for",
+    "stageTitre": "Second-year internship",
+    "stageSousTitre": "End of second year, 2027",
+    "stageDates": "Dates: April to June 2027",
+    "alternanceTitre": "Work-study (apprenticeship)",
+    "alternanceSousTitre": "Third year of BUT, 2027 – 2028",
+    "timelineTitre": "Education and experience",
+    "but3Titre": "BUT Informatique – 3rd year",
+    "etiquettes": {
+      "aVenir": "Upcoming",
+      "enCours": "In progress",
+      "terminee": "Completed",
+      "parallele": "Alongside",
+      "obtenu": "Obtained"
+    },
+    "but3Texte": "A year I would like to complete as a work-study student.",
+    "but2Titre": "BUT Informatique – 2nd year",
+    "but2Texte": "IUT d'Annecy, Université Savoie Mont Blanc – Annecy, France. Bachelor's Degree of Technology in Computer Science (3-year undergraduate diploma). Internship at the end of the year.",
+    "but1Titre": "BUT Informatique – 1st year",
+    "but1Texte": "IUT d'Annecy – Annecy, France.",
+    "depuis": "Since",
+    "freelanceDate": "October 2026",
+    "freelanceTitre": "Freelance web developer",
+    "freelanceTexte": "Building and deploying websites for clients alongside my studies.",
+    "bacTitre": "French Baccalaureate (technological track) – Lycée de l'Albanais",
+    "bacTexte": "High school diploma specialized in Information Systems and Digital Technology (SIN).",
+    "butTitre": "What the BUT Informatique covers",
+    "butIntro": "The degree is built around six skills, developed over the three years. My specialization track: ",
+    "butSpecialite": "Application Development",
+    "competences": {
+      "realiser": {
+        "titre": "Develop",
+        "sousTitre": "Develop software applications",
+        "texte": "Design, code, test and integrate an IT solution."
+      },
+      "optimiser": {
+        "titre": "Optimize",
+        "sousTitre": "Optimize applications",
+        "texte": "Choose the right data structures and algorithms, measure and improve."
+      },
+      "administrer": {
+        "titre": "Administer",
+        "sousTitre": "Administer communicating systems",
+        "texte": "Install, configure and secure machines, networks and services."
+      },
+      "gerer": {
+        "titre": "Manage",
+        "sousTitre": "Manage information data",
+        "texte": "Design databases, query them and make use of the data."
+      },
+      "conduire": {
+        "titre": "Lead",
+        "sousTitre": "Lead a project",
+        "texte": "Analyze a need, plan a project and track its progress."
+      },
+      "collaborer": {
+        "titre": "Collaborate",
+        "sousTitre": "Work in an IT team",
+        "texte": "Fit into a team, communicate and share the workload."
+      }
+    },
+    "langagesTitre": "Languages studied in class:"
+  },
+  "projets": {
+    "titre": "Projects",
+    "intro": "Websites built for clients, BUT projects and what I build in my free time.",
+    "visiter": "Visit the project",
+    "code": "View the code",
+    "erreur": "Unable to load the projects."
+  },
+  "freelance": {
+    "titre": "Freelance web developer",
+    "intro": "Alongside my studies, I build websites for clients: from the first discussion to going live, and then the updates.",
+    "depuis": "Since",
+    "date": "October 2026",
+    "statut": "Status",
+    "statutValeur": "Micro-entrepreneur (sole trader)",
+    "base": "Based in",
+    "lieu": "Annecy, Haute-Savoie, France",
+    "methodeTitre": "How I work",
+    "etapes": {
+      "besoin": {
+        "titre": "Understand the need",
+        "texte": "We talk about the project: what the website is for, who it is for and what content it needs."
+      },
+      "developper": {
+        "titre": "Design and develop",
+        "texte": "I build the website in HTML, CSS and JavaScript, fast and easy to read on mobile as well as on desktop."
+      },
+      "enLigne": {
+        "titre": "Go live",
+        "texte": "I deploy the website on a server I manage, with Nginx and Docker."
+      },
+      "fairevivre": {
+        "titre": "Keep the site alive",
+        "texte": "Changes go through Git and are live with a single command."
+      }
+    },
+    "apportTitre": "What freelancing brings me",
+    "apportTexte": "For a company hosting me as an intern or a work-study student, it means working with someone who has already delivered projects in real-world conditions.",
+    "apportLien": "See the projects",
+    "apports": {
+      "boutEnBout": {
+        "titre": "End-to-end projects",
+        "texte": "From the first conversation with the client to the live website, I handle every step."
+      },
+      "production": {
+        "titre": "Deployment to production",
+        "texte": "Server, containers, Nginx configuration, updates: I deploy what I code myself."
+      },
+      "clients": {
+        "titre": "Real clients",
+        "texte": "Concrete requests, deadlines and feedback to take into account."
+      }
+    },
+    "bandeTitre": "A website project?",
+    "bandeTexte": "Tell me about your project in a few lines and I will get back to you to discuss it."
+  },
+  "contact": {
+    "titre": "Contact",
+    "intro": "An internship, a work-study position or a website project? The easiest way is to email me.",
+    "email": "Email",
+    "ecrire": "Send an email",
+    "copier": "Copy address",
+    "localisation": "Location",
+    "lieu": "Annecy, Haute-Savoie, France",
+    "dispoTitre": "Availability",
+    "stage": "Internship",
+    "stageDates": "April to June 2027",
+    "alternance": "Work-study",
+    "alternanceDates": "Third year of BUT, 2027 – 2028",
+    "copie": "Address copied!",
+    "copieImpossible": "Copy failed"
+  }
+}

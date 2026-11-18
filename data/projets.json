@@ -1,18 +1,24 @@
 [
   {
     "titre": "MineBot-Panel",
-    "description": "Panel web local pour piloter des bots Minecraft (en cour de developpement). Fonctionnalités actuelle : chat en temps réel, envoi de messages et connexion aux serveurs jusqu'à la 26.3 via ViaProxy.",
-    "categorie": "Personnel",
+    "description": {
+      "fr": "Panel web local pour piloter des bots Minecraft (en cours de développement). Fonctionnalités actuelles : chat en temps réel, envoi de messages et connexion aux serveurs jusqu'à la 26.3 via ViaProxy.",
+      "en": "Local web panel to control Minecraft bots (in development). Current features: real-time chat, sending messages and connecting to servers up to version 26.3 via ViaProxy."
+    },
+    "categorie": { "fr": "Personnel", "en": "Personal" },
     "annee": "2026-2027",
     "technos": ["JavaScript", "Node.js", "Socket.IO", "HTML", "CSS"],
-    "image": "assets/img/projet/minebot-panel.png",
+    "image": "assets/img/projet/MineBot-Panel.png",
     "code": "https://github.com/Xznoow/minebot-panel"
   },
   {
-    "titre": "Arbre-généalogique",
-    "description": "Application web de création d'arbre généalogique.",
-    "categorie": "Personnel",
-    "annee" : "2025-2026",
+    "titre": { "fr": "Arbre-généalogique", "en": "Family tree" },
+    "description": {
+      "fr": "Application web de création d'arbre généalogique.",
+      "en": "Web application for building a family tree."
+    },
+    "categorie": { "fr": "Personnel", "en": "Personal" },
+    "annee": "2025-2026",
     "technos": ["HTML", "CSS", "JavaScript"],
     "image": "assets/img/projet/arbre-genealogique.png",
     "lien": "https://xznoow.github.io/arbre-genealogique/",

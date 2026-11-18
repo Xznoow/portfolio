@@ -791,6 +791,79 @@ nav a:focus-visible{
   border-radius: 4px;
 }
 
+/* Sélecteur de langue : slider FR | EN */
+nav{
+  margin-left: auto;
+}
+
+.choix-langue{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 1rem;
+  padding: 3px;
+  border: 1px solid var(--filet-fort);
+  border-radius: 999px;
+  background-color: var(--fond-doux);
+}
+
+/* Pastille de couleur qui glisse sous la langue choisie */
+.choix-langue::before{
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background-color: var(--accent);
+}
+
+.choix-langue.pret::before{
+  transition: transform 0.3s var(--sortie);
+}
+
+.choix-langue[data-langue="en"]::before{
+  transform: translateX(100%);
+}
+
+.choix-langue button{
+  position: relative;               /* passe au-dessus de la pastille */
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--discret);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.choix-langue button:hover{
+  color: var(--encre);
+}
+
+.choix-langue button[aria-pressed="true"]{
+  color: var(--sur-accent);
+  cursor: default;
+}
+
+.choix-langue button:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .choix-langue.pret::before,
+  .choix-langue button{
+    transition: none;
+  }
+}
+
 
 /* ==========================================================================
    Footer
@@ -1117,6 +1190,22 @@ main section.active{
 
   .burger{
     display: flex;
+  }
+
+  /* Ordre sur mobile : logo … FR|EN ☰, puis le menu en dessous */
+  .choix-langue{
+    order: 1;
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+
+  .burger{
+    order: 2;
+  }
+
+  nav{
+    order: 3;
+    margin-left: 0;
   }
 
   nav{
