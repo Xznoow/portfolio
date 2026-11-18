@@ -443,7 +443,13 @@
                     <h1 data-i18n="projets.titre">Projets</h1>
                     <p data-i18n="projets.intro">Des projets menés en BUT et ce que je construis sur mon temps libre.</p>
                 </div>
+                <!-- Filtres générés depuis les technos de data/projets.json -->
+                <div class="filtres" role="group" aria-label="Filtrer les projets par technologie" data-i18n-attr="aria-label:projets.filtresAria">
+                    <span class="filtres-label" data-i18n="projets.filtrer">Filtrer par techno</span>
+                    <div class="filtres-liste" id="filtres-technos"></div>
+                </div>
                 <ul class="grille-projets" id="liste-projets"></ul>
+                <p class="projets-vide" id="projets-vide" hidden data-i18n="projets.vide">Aucun projet n'utilise cette techno pour le moment.</p>
             </div>
         </section>
 
@@ -589,6 +595,16 @@
             </div>
         </section>
     </main>
+
+    <!-- Pop-up de détail d'un projet (remplie par le JS) -->
+    <dialog class="modale" id="modale-projet" aria-labelledby="modale-titre">
+        <div class="modale-boite">
+            <button type="button" class="modale-fermer" aria-label="Fermer" data-i18n-attr="aria-label:projets.fermer">
+                <span aria-hidden="true">✕</span>
+            </button>
+            <div class="modale-corps" id="modale-corps"></div>
+        </div>
+    </dialog>
 
     <footer>
         <div class="conteneur">

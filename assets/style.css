@@ -1327,6 +1327,316 @@ main section.active{
   border-radius: 4px;
 }
 
+/* --- Carte projet : cliquable --- */
+.carte-projet{
+  cursor: pointer;
+}
+
+.carte-projet[hidden]{
+  display: none;
+}
+
+.lien-details{
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.lien-details::after{
+  content: " →";
+}
+
+.lien-details:hover{
+  color: var(--accent-fort);
+}
+
+.lien-details:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Vignette quand un projet n'a pas de capture */
+.visuel-vide{
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 20%, var(--accent-doux), transparent 60%),
+    var(--fond-doux);
+}
+
+.visuel-vide .icone{
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--accent);
+}
+
+/* --- Filtres par techno --- */
+.filtres{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtres-label{
+  color: var(--discret);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.filtres-liste{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filtre{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--filet-fort);
+  border-radius: 999px;
+  background: none;
+  color: var(--encre-2);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.filtre:hover{
+  border-color: var(--accent);
+  color: var(--encre);
+}
+
+.filtre[aria-pressed="true"]{
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: var(--sur-accent);
+}
+
+.filtre:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.filtre-nombre{
+  color: var(--discret);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.filtre[aria-pressed="true"] .filtre-nombre{
+  color: var(--sur-accent);
+  opacity: 0.7;
+}
+
+.projets-vide{
+  padding: 2rem 0;
+  color: var(--discret);
+}
+
+/* --- Pop-up de détail --- */
+.modale{
+  width: min(46rem, calc(100% - 2rem));
+  max-height: min(90vh, 60rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--filet-fort);
+  border-radius: var(--rayon-carte);
+  background: var(--surface);
+  color: var(--encre-2);
+  box-shadow: var(--ombre-2);
+  overflow: hidden;
+}
+
+.modale::backdrop{
+  background: rgb(5 3 12 / 0.7);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.modale[open]{
+  animation: modale-entree 0.3s var(--sortie);
+}
+
+.modale[open]::backdrop{
+  animation: fondu 0.3s ease;
+}
+
+@keyframes modale-entree{
+  from{ opacity: 0; transform: translateY(12px) scale(0.98); }
+}
+
+@keyframes fondu{
+  from{ opacity: 0; }
+}
+
+body:has(.modale[open]){
+  overflow: hidden;
+}
+
+.modale-boite{
+  position: relative;
+  max-height: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.modale-fermer{
+  position: sticky;
+  top: 0.75rem;
+  z-index: 1;
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0.75rem 0.75rem -3.25rem 0;
+  border: 1px solid var(--filet-fort);
+  border-radius: 50%;
+  background: rgb(13 10 26 / 0.8);
+  color: var(--encre);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.modale-fermer:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.modale-fermer:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.modale-visuel{
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border-bottom: 1px solid var(--filet);
+  background: var(--fond-doux);
+}
+
+.modale-visuel img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.modale-entete,
+.modale-sections,
+.modale-liens{
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+.modale-entete{
+  padding-top: 1.5rem;
+}
+
+.modale-entete h2{
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
+}
+
+.modale-meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  list-style: none;
+}
+
+.modale-meta li{
+  padding: 0.1rem 0.65rem;
+  border: 1px solid var(--filet-fort);
+  border-radius: 999px;
+  color: var(--discret);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.modale-meta .modale-meta-accent{
+  border-color: transparent;
+  background: var(--accent-doux);
+  color: var(--accent);
+}
+
+.modale-resume{
+  margin-top: 1rem;
+  color: var(--encre-2);
+}
+
+.modale-sections{
+  display: grid;
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.modale-section h3{
+  margin-bottom: 0.5rem;
+  color: var(--discret);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.modale-section p{
+  color: var(--encre-2);
+  font-size: 0.9875rem;
+}
+
+.modale-liste{
+  display: grid;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.modale-liste li{
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.9875rem;
+}
+
+.modale-liste li::before{
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.modale-liens{
+  justify-content: flex-start;
+  margin-left: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.75rem;
+  border-top: 1px solid var(--filet);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .modale[open],
+  .modale[open]::backdrop{
+    animation: none;
+  }
+}
+
 /* --- Contact --- */
 .carte .email-grand{
   margin-top: 0.5rem;
@@ -1429,6 +1739,24 @@ main section.active{
     display: flex;
     margin: 0.5rem 0 0;
     border-color: var(--filet-fort);
+  }
+
+  /* Filtres : une seule ligne qui défile horizontalement */
+  .filtres-liste{
+    flex-wrap: nowrap;
+    width: calc(100% + 2 * var(--gouttiere));
+    margin-inline: calc(-1 * var(--gouttiere));
+    padding-inline: var(--gouttiere);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filtres-liste::-webkit-scrollbar{
+    display: none;
+  }
+
+  .filtre{
+    flex-shrink: 0;
   }
 
   /* Animation ☰ → ✕ */

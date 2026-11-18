@@ -1,16 +1,41 @@
 [
   {
+    "id": "mobalpa",
     "titre": "MobAlpa",
     "description": {
-      "fr": "Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec des droits différents pour les commerciaux et les responsables. Ma part : navigation et écrans principaux, styles de l'interface, gestion des clients et des rôles, CRUD du catalogue.",
-      "en": "Desktop quote management application for a fictional kitchen company modelled on Mobalpa, with different permissions for sales staff and managers. My part: navigation and main screens, interface styles, client and role management, catalogue CRUD."
+      "fr": "Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec des droits différents pour les commerciaux et les responsables.",
+      "en": "Desktop quote management application for a fictional kitchen company modelled on Mobalpa, with different permissions for sales staff and managers."
     },
-    "categorie": {
-      "fr": "Universitaire",
-      "en": "University project"
-    },
+    "contexte": "sae",
     "annee": "2026",
+    "statut": "termine",
     "equipe": 3,
+    "objectif": {
+      "fr": "SAÉ 2.01 : concevoir une application qui permet aux commerciaux d'un cuisiniste de gérer leurs clients et de créer des devis à partir d'un catalogue d'équipements.",
+      "en": "SAÉ 2.01: design an application that lets a kitchen company's sales staff manage their clients and create quotes from an equipment catalogue."
+    },
+    "role": {
+      "fr": "J'ai développé le menu de navigation et les quatre écrans principaux, factorisé les styles de l'interface (AppStyles.xaml), réalisé la gestion des clients et la gestion des rôles, avec un catalogue modifiable uniquement par le responsable.",
+      "en": "I built the navigation menu and the four main screens, factored the interface styles (AppStyles.xaml), and developed client management and role management, with a catalogue only the manager can edit."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Connexion des salariés et rôles commercial / responsable",
+        "Gestion des clients : liste, recherche, création, suppression",
+        "Création de devis à partir du catalogue d'équipements",
+        "Catalogue en CRUD réservé au responsable"
+      ],
+      "en": [
+        "Employee login with sales / manager roles",
+        "Client management: list, search, creation, deletion",
+        "Quote creation from the equipment catalogue",
+        "Catalogue CRUD restricted to the manager"
+      ]
+    },
+    "organisation": {
+      "fr": "Dépôt GitHub commun, travail sur des branches fusionnées par pull requests.",
+      "en": "Shared GitHub repository, work on branches merged through pull requests."
+    },
     "technos": [
       "C#",
       ".NET",
@@ -19,17 +44,164 @@
     ],
     "image": "assets/img/projet/MobAlpa.png"
   },
-    {
+  {
+    "id": "ogplay",
+    "titre": "OGP'Lay",
+    "description": {
+      "fr": "Optimisation d'un jeu de simulation d'entreprise agroalimentaire par programmation linéaire : +75,9 % de bénéfice par rapport à une approche gloutonne.",
+      "en": "Optimisation of a food-industry business simulation game with linear programming: 75.9% more profit than a greedy approach."
+    },
+    "contexte": "sae",
+    "annee": "2026",
+    "statut": "termine",
+    "equipe": 6,
+    "objectif": {
+      "fr": "SAÉ 2.02 : dans un jeu de simulation, déterminer chaque mois le plan de production qui maximise le bénéfice de l'entreprise, en respectant les contraintes de matières premières, de machines, de budget et de demande du marché.",
+      "en": "SAÉ 2.02: in a simulation game, find each month the production plan that maximises the company's profit while respecting raw material, machine, budget and market demand constraints."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Chaînes de production modélisées sous forme de graphes (ateliers, nomenclatures, ressources humaines)",
+        "Modèle de programmation linéaire mixte résolu avec PuLP",
+        "Comparaison avec une approche gloutonne : +75,9 % de bénéfice",
+        "Résultats présentés lors d'une soutenance orale"
+      ],
+      "en": [
+        "Production chains modelled as graphs (workshops, bills of materials, human resources)",
+        "Mixed-integer linear programming model solved with PuLP",
+        "Comparison with a greedy approach: 75.9% more profit",
+        "Results presented in an oral defence"
+      ]
+    },
+    "technos": [
+      "Python",
+      "PuLP",
+      "Graphviz"
+    ],
+    "image": "assets/img/projet/OGPlay.png"
+  },
+  {
+    "id": "infrastructure",
+    "titre": {
+      "fr": "Serveur VPS",
+      "en": "VPS Server"
+    },
+    "description": {
+      "fr": "Serveur d'hébergement que j'ai conçu et que j'administre pour mes projets personnels et professionnels : conteneurs isolés, sécurisation et automatisation.",
+      "en": "Hosting server I designed and administer for my personal and professional projects: isolated containers, hardening and automation."
+    },
+    "contexte": "perso",
+    "annee": "2026",
+    "statut": "en-cours",
+    "equipe": 1,
+    "objectif": {
+      "fr": "Disposer d'un serveur fiable et sécurisé pour héberger les sites de ma micro-entreprise et mes projets personnels, avec des déploiements reproductibles.",
+      "en": "Have a reliable, secure server to host my micro-business websites and personal projects, with reproducible deployments."
+    },
+    "role": {
+      "fr": "Projet mené seul, de la conception à l'exploitation.",
+      "en": "Solo project, from design to operations."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "VPS OVHcloud sous Debian 12, connexion SSH par clé uniquement et pare-feu",
+        "Conteneurs Docker sur des réseaux isolés, derrière un reverse proxy",
+        "Scripts Bash de création de projet, de sauvegarde quotidienne et d'audit de sécurité",
+        "Modèles de projets et script Python de création, manuel d'exploitation documenté"
+      ],
+      "en": [
+        "OVHcloud VPS running Debian 12, key-only SSH access and firewall",
+        "Docker containers on isolated networks, behind a reverse proxy",
+        "Bash scripts for project provisioning, daily backups and security audits",
+        "Project templates, a Python scaffolding script and a documented operations manual"
+      ]
+    },
+    "technos": [
+      "Linux",
+      "Docker",
+      "Nginx",
+      "Bash",
+      "Python"
+    ],
+    "icone": "serveur"
+  },
+  {
+    "id": "portfolio",
+    "titre": {
+      "fr": "Ce portfolio",
+      "en": "This portfolio"
+    },
+    "description": {
+      "fr": "Mon site personnel, bilingue français / anglais, développé sans framework : routeur maison, données en JSON, filtres et pop-ups.",
+      "en": "My personal website, bilingual French / English, built without any framework: custom router, JSON data, filters and pop-ups."
+    },
+    "contexte": "perso",
+    "annee": "2026",
+    "statut": "en-cours",
+    "equipe": 1,
+    "objectif": {
+      "fr": "Présenter mon parcours et mes projets aux recruteurs, en français et en anglais, avec un site rapide et facile à mettre à jour.",
+      "en": "Present my background and projects to recruiters, in French and English, with a fast website that is easy to update."
+    },
+    "role": {
+      "fr": "Conception, design et développement, seul.",
+      "en": "Design and development, on my own."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Une seule page HTML avec un routeur par hash",
+        "Traduction français / anglais avec mémorisation du choix",
+        "Projets, compétences et langues chargés depuis des fichiers JSON",
+        "Filtres par technologie et fiches détaillées en pop-up",
+        "Responsive et accessible (navigation au clavier, aria)"
+      ],
+      "en": [
+        "A single HTML page with a hash-based router",
+        "French / English translation that remembers the visitor's choice",
+        "Projects, skills and languages loaded from JSON files",
+        "Technology filters and detailed pop-up cards",
+        "Responsive and accessible (keyboard navigation, aria)"
+      ]
+    },
+    "organisation": {
+      "fr": "Versionné avec Git : une branche par fonctionnalité, fusionnée dans main une fois terminée.",
+      "en": "Versioned with Git: one branch per feature, merged into main once finished."
+    },
+    "technos": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "assets/img/projet/portfolio.png",
+    "code": "https://github.com/Xznoow/portfolio"
+  },
+  {
+    "id": "minebot-panel",
     "titre": "MineBot-Panel",
     "description": {
-      "fr": "Panel web local pour piloter des bots Minecraft (en cours de développement). Fonctionnalités actuelles : chat en temps réel, envoi de messages et connexion aux serveurs jusqu'à la 26.3 via ViaProxy.",
-      "en": "Local web panel to control Minecraft bots (in development). Current features: real-time chat, sending messages and connecting to servers up to version 26.3 via ViaProxy."
+      "fr": "Panel web local pour piloter des bots Minecraft : chat en temps réel, envoi de messages et connexion aux serveurs via ViaProxy.",
+      "en": "Local web panel to control Minecraft bots: real-time chat, sending messages and connecting to servers via ViaProxy."
     },
-    "categorie": {
-      "fr": "Personnel",
-      "en": "Personal"
-    },
+    "contexte": "perso",
     "annee": "2026",
+    "statut": "en-cours",
+    "equipe": 1,
+    "objectif": {
+      "fr": "Piloter des bots Minecraft depuis une interface web, sans passer par le jeu.",
+      "en": "Control Minecraft bots from a web interface, without going through the game."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Chat du serveur affiché en temps réel",
+        "Envoi de messages depuis le panel",
+        "Connexion aux serveurs jusqu'à la version 26.3 grâce à ViaProxy"
+      ],
+      "en": [
+        "Server chat displayed in real time",
+        "Sending messages from the panel",
+        "Connecting to servers up to version 26.3 thanks to ViaProxy"
+      ]
+    },
     "technos": [
       "JavaScript",
       "Node.js",
@@ -41,38 +213,80 @@
     "code": "https://github.com/Xznoow/minebot-panel"
   },
   {
-    "titre": "OGP'Lay",
+    "id": "benevolt",
+    "titre": "Benevolt",
     "description": {
-      "fr": "Optimisation d'un jeu de simulation d'entreprise agroalimentaire : chaînes de production modélisées en graphes et plan de production calculé par programmation linéaire, pour +75,9 % de bénéfice par rapport à une approche gloutonne.",
-      "en": "Optimisation of a food-industry business simulation game: production chains modelled as graphs and a production plan computed with linear programming, for 75.9% more profit than a greedy approach."
+      "fr": "Plateforme fictive inspirée de Benevolt, qui met en relation des bénévoles et des associations. Conception terminée, développement à venir.",
+      "en": "Fictional platform modelled on Benevolt, matching volunteers with associations. Design completed, development coming soon."
     },
-    "categorie": {
-      "fr": "Universitaire",
-      "en": "University project"
+    "contexte": "sae",
+    "annee": "2026-2027",
+    "statut": "en-cours",
+    "equipe": 4,
+    "objectif": {
+      "fr": "SAÉ 3.01 : concevoir et développer une application web qui aide les bénévoles, surtout les jeunes, à trouver une mission selon leurs envies, leurs compétences, leur localisation et leurs disponibilités.",
+      "en": "SAÉ 3.01: design and develop a web application that helps volunteers, especially young people, find a mission matching their interests, skills, location and availability."
     },
-    "annee": "2026",
-    "equipe": 6,
+    "role": {
+      "fr": "J'ai rédigé les cas d'utilisation des espaces Association et Administration, puis écrit les contraintes et le jeu de test SQL de la base PostgreSQL générée à partir du MCD.",
+      "en": "I wrote the use cases for the Association and Administration areas, then the SQL constraints and test data for the PostgreSQL database generated from the data model (MCD)."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Recherche de missions avec filtres (lieu, domaine, type de mission, dates)",
+        "Espace bénévole : profil, favoris, candidatures",
+        "Espace association : annonces, messagerie, suivi des bénévoles",
+        "Espace administrateur"
+      ],
+      "en": [
+        "Mission search with filters (location, field, mission type, dates)",
+        "Volunteer area: profile, favourites, applications",
+        "Association area: listings, messaging, volunteer follow-up",
+        "Administrator area"
+      ]
+    },
+    "organisation": {
+      "fr": "Méthode Scrum, suivi sur Azure DevOps.",
+      "en": "Scrum methodology, tracked on Azure DevOps."
+    },
     "technos": [
-      "Python",
-      "PuLP",
-      "Graphviz"
+      "PostgreSQL",
+      "SQL",
+      "Laravel",
+      "PHP"
     ],
-    "image": "assets/img/projet/OGPlay.png"
+    "icone": "formation"
   },
   {
+    "id": "arbre-genealogique",
     "titre": {
-      "fr": "Arbre-généalogique",
+      "fr": "Arbre généalogique",
       "en": "Family tree"
     },
     "description": {
-      "fr": "Application web de création d'arbre généalogique.",
-      "en": "Web application for building a family tree."
+      "fr": "Application web pour créer son arbre généalogique directement dans le navigateur.",
+      "en": "Web application for building a family tree directly in the browser."
     },
-    "categorie": {
-      "fr": "Personnel",
-      "en": "Personal"
-    },
+    "contexte": "perso",
     "annee": "2026",
+    "statut": "en-cours",
+    "equipe": 1,
+    "objectif": {
+      "fr": "Permettre de construire simplement son arbre généalogique sur une page web.",
+      "en": "Make it easy to build a family tree on a web page."
+    },
+    "fonctionnalites": {
+      "fr": [
+        "Version 1 sans base de données : les données sont stockées dans le navigateur",
+        "Affichage de l'arbre avec la bibliothèque family-chart",
+        "Version 2 prévue : comptes utilisateurs et page de connexion"
+      ],
+      "en": [
+        "Version 1 without a database: data is stored in the browser",
+        "Tree display with the family-chart library",
+        "Version 2 planned: user accounts and a login page"
+      ]
+    },
     "technos": [
       "HTML",
       "CSS",

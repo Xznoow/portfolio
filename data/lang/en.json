@@ -225,7 +225,31 @@
     "intro": "University projects from my BUT and what I build in my free time.",
     "visiter": "Visit the project",
     "code": "View the code",
-    "erreur": "Unable to load the projects."
+    "erreur": "Unable to load the projects.",
+    "filtrer": "Filter by technology",
+    "filtresAria": "Filter projects by technology",
+    "tous": "All",
+    "vide": "No project uses this technology yet.",
+    "details": "View details",
+    "fermer": "Close",
+    "solo": "Solo project",
+    "equipe": "Team of {n}",
+    "contextes": {
+      "sae": "University project",
+      "perso": "Personal",
+      "client": "Client"
+    },
+    "statuts": {
+      "termine": "Completed",
+      "en-cours": "In progress"
+    },
+    "sections": {
+      "objectif": "Context and goal",
+      "role": "My role",
+      "fonctionnalites": "Key features",
+      "organisation": "Organisation",
+      "technos": "Technologies"
+    }
   },
   "freelance": {
     "titre": "Freelance web developer",

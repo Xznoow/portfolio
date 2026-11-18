@@ -276,7 +276,14 @@ document.querySelectorAll('.sommaire-cible').forEach((section) => observateurSec
 // ===== Projets =====
 const listeProjets = document.querySelector('#liste-projets');   // page Projets : tous
 const apercuProjets = document.querySelector('#apercu-projets'); // accueil : les 3 premiers
+const filtresTechnos = document.querySelector('#filtres-technos');
+const messageVide = document.querySelector('#projets-vide');
 let projets = [];
+let filtreActif = null; // null = tous les projets
+
+// Libellés écrits dans le JS (français) ; l'anglais est dans en.json
+const CONTEXTES_FR = { sae: 'SAÉ', perso: 'Personnel', client: 'Client' };
+const STATUTS_FR = { termine: 'Terminé', 'en-cours': 'En cours' };
 
 async function chargerProjets() {
   try {
@@ -295,6 +302,9 @@ async function chargerProjets() {
 function afficherProjets() {
   listeProjets.replaceChildren(...projets.map((projet) => creerCarte(projet, 'h2')));
   apercuProjets.replaceChildren(...projets.slice(0, 3).map((projet) => creerCarte(projet, 'h3')));
+  afficherFiltres();
+  appliquerFiltre();
+  if (modale.open && projetOuvert) remplirModale(projetOuvert);
 }
 
 function afficherErreur(liste) {
@@ -303,19 +313,79 @@ function afficherErreur(liste) {
   liste.replaceChildren(message);
 }
 
+function libelleContexte(contexte) {
+  return t(`projets.contextes.${contexte}`, CONTEXTES_FR[contexte] ?? contexte);
+}
+
+function libelleStatut(statut) {
+  return t(`projets.statuts.${statut}`, STATUTS_FR[statut] ?? statut);
+}
+
+function libelleEquipe(equipe) {
+  if (!equipe) return null;
+  if (equipe === 1) return t('projets.solo', 'Projet solo');
+  return t('projets.equipe', 'Équipe de {n}').replace('{n}', equipe);
+}
+
+// Visuel : la capture du projet, ou à défaut une vignette avec une icône
+function creerVisuel(projet, classe) {
+  const visuel = document.createElement('div');
+  visuel.className = classe;
+
+  if (projet.image) {
+    const img = document.createElement('img');
+    img.src = projet.image;
+    img.alt = texteLocalise(projet.titre);
+    img.loading = 'lazy';
+    visuel.append(img);
+  } else {
+    visuel.classList.add('visuel-vide');
+    const icone = document.createElement('span');
+    icone.className = `icone icone--${projet.icone ?? 'serveur'}`;
+    icone.setAttribute('aria-hidden', 'true');
+    visuel.append(icone);
+  }
+  return visuel;
+}
+
+function creerLiensExternes(projet) {
+  const liens = [];
+
+  if (projet.lien) {
+    const lien = document.createElement('a');
+    lien.href = projet.lien;
+    lien.textContent = t('projets.visiter', 'Visiter le projet');
+    lien.target = '_blank';
+    lien.rel = 'noopener';
+    liens.push(lien);
+  }
+
+  if (projet.code) {
+    const github = document.createElement('a');
+    github.href = projet.code;
+    github.textContent = t('projets.code', 'Voir le code');
+    github.target = '_blank';
+    github.rel = 'noopener';
+    liens.push(github);
+  }
+  return liens;
+}
+
+function creerPastilles(technos) {
+  const liste = document.createElement('ul');
+  liste.className = 'pastilles';
+  technos.forEach((techno) => {
+    const li = document.createElement('li');
+    li.textContent = techno;
+    liste.append(li);
+  });
+  return liste;
+}
+
 function creerCarte(projet, niveauTitre) {
   const carte = document.createElement('li');
   carte.className = 'carte-projet';
-
-  // === visuel ===
-  const visuel = document.createElement('div');
-  visuel.className = 'projet-visuel';
-
-  const img = document.createElement('img');
-  img.src = projet.image;
-  img.alt = texteLocalise(projet.titre);
-  img.loading = 'lazy';
-  visuel.append(img);
+  carte.dataset.technos = projet.technos.join('|');
 
   // === corps ===
   const corps = document.createElement('div');
@@ -335,44 +405,182 @@ function creerCarte(projet, niveauTitre) {
 
   const meta = document.createElement('span');
   meta.className = 'projet-meta';
-  meta.textContent = texteLocalise(projet.categorie) + ' · ' + projet.annee;
-
-  const technos = document.createElement('ul');
-  technos.className = 'pastilles';
-  projet.technos.forEach((techno) => {
-    const li = document.createElement('li');
-    li.textContent = techno;
-    technos.append(li);
-  });
+  meta.textContent = `${libelleContexte(projet.contexte)} · ${projet.annee}`;
 
   const liens = document.createElement('div');
   liens.className = 'liens';
 
-  if (projet.lien) {
-    const lien = document.createElement('a');
-    lien.href = projet.lien;
-    lien.textContent = t('projets.visiter', 'Visiter le projet');
-    lien.target = '_blank';
-    lien.rel = 'noopener';
-    liens.append(lien);
-  }
+  const details = document.createElement('button');
+  details.type = 'button';
+  details.className = 'lien-details';
+  details.textContent = t('projets.details', 'Voir le détail');
+  details.addEventListener('click', () => ouvrirProjet(projet));
 
-  if (projet.code) {
-    const github = document.createElement('a');
-    github.href = projet.code;
-    github.textContent = t('projets.code', 'Voir le code');
-    github.target = '_blank';
-    github.rel = 'noopener';
-    liens.append(github);
-  }
-
-  piedProjet.append(meta, technos, liens);
-
+  liens.append(details, ...creerLiensExternes(projet));
+  piedProjet.append(meta, creerPastilles(projet.technos), liens);
   corps.append(titre, description, piedProjet);
+  carte.append(creerVisuel(projet, 'projet-visuel'), corps);
 
-  carte.append(visuel, corps);
+  carte.addEventListener('click', (event) => {
+    if (event.target.closest('a, button')) return;
+    ouvrirProjet(projet);
+  });
+
   return carte;
 }
+
+// ===== Filtres par techno =====
+function afficherFiltres() {
+  // Nombre de projets par techno
+  const compte = new Map();
+  projets.forEach((projet) => {
+    projet.technos.forEach((techno) => compte.set(techno, (compte.get(techno) ?? 0) + 1));
+  });
+  const technos = [...compte.keys()].sort((a, b) => compte.get(b) - compte.get(a) || a.localeCompare(b));
+
+  if (filtreActif && !compte.has(filtreActif)) filtreActif = null;
+
+  const creerBouton = (valeur, texte, nombre) => {
+    const bouton = document.createElement('button');
+    bouton.type = 'button';
+    bouton.className = 'filtre';
+    bouton.setAttribute('aria-pressed', valeur === filtreActif);
+
+    const libelle = document.createElement('span');
+    libelle.textContent = texte;
+    const total = document.createElement('span');
+    total.className = 'filtre-nombre';
+    total.textContent = nombre;
+
+    bouton.append(libelle, total);
+    bouton.addEventListener('click', () => {
+      filtreActif = valeur;
+      afficherFiltres();
+      appliquerFiltre();
+    });
+    return bouton;
+  };
+
+  filtresTechnos.replaceChildren(
+    creerBouton(null, t('projets.tous', 'Tous'), projets.length),
+    ...technos.map((techno) => creerBouton(techno, techno, compte.get(techno))),
+  );
+}
+
+function appliquerFiltre() {
+  let visibles = 0;
+  listeProjets.querySelectorAll('.carte-projet').forEach((carte) => {
+    const garde = !filtreActif || carte.dataset.technos.split('|').includes(filtreActif);
+    carte.hidden = !garde;
+    if (garde) visibles++;
+  });
+  messageVide.hidden = visibles > 0;
+}
+
+// ===== Pop-up de détail =====
+const modale = document.querySelector('#modale-projet');
+const corpsModale = document.querySelector('#modale-corps');
+let projetOuvert = null;
+
+function ajouterSection(parent, titre, contenu) {
+  if (!contenu || (Array.isArray(contenu) && !contenu.length)) return;
+
+  const section = document.createElement('section');
+  section.className = 'modale-section';
+  const h3 = document.createElement('h3');
+  h3.textContent = titre;
+  section.append(h3);
+
+  if (Array.isArray(contenu)) {
+    const liste = document.createElement('ul');
+    liste.className = 'modale-liste';
+    contenu.forEach((texte) => {
+      const li = document.createElement('li');
+      li.textContent = texte;
+      liste.append(li);
+    });
+    section.append(liste);
+  } else if (contenu instanceof Node) {
+    section.append(contenu);
+  } else {
+    const p = document.createElement('p');
+    p.textContent = contenu;
+    section.append(p);
+  }
+  parent.append(section);
+}
+
+function remplirModale(projet) {
+  const elements = [];
+
+  elements.push(creerVisuel(projet, 'modale-visuel'));
+
+  const entete = document.createElement('div');
+  entete.className = 'modale-entete';
+
+  const titre = document.createElement('h2');
+  titre.id = 'modale-titre';
+  titre.textContent = texteLocalise(projet.titre);
+
+  // Étiquettes
+  const meta = document.createElement('ul');
+  meta.className = 'modale-meta';
+  [
+    libelleContexte(projet.contexte),
+    projet.annee,
+    projet.statut ? libelleStatut(projet.statut) : null,
+    libelleEquipe(projet.equipe),
+  ].filter(Boolean).forEach((texte, index) => {
+    const li = document.createElement('li');
+    li.textContent = texte;
+    if (index === 0) li.className = 'modale-meta-accent';
+    meta.append(li);
+  });
+
+  const resume = document.createElement('p');
+  resume.className = 'modale-resume';
+  resume.textContent = texteLocalise(projet.description);
+
+  entete.append(titre, meta, resume);
+  elements.push(entete);
+
+  const sections = document.createElement('div');
+  sections.className = 'modale-sections';
+  ajouterSection(sections, t('projets.sections.objectif', 'Contexte et objectif'), texteLocalise(projet.objectif));
+  ajouterSection(sections, t('projets.sections.role', 'Mon rôle'), texteLocalise(projet.role));
+  ajouterSection(sections, t('projets.sections.fonctionnalites', 'Fonctionnalités clés'), texteLocalise(projet.fonctionnalites));
+  ajouterSection(sections, t('projets.sections.organisation', 'Organisation'), texteLocalise(projet.organisation));
+  ajouterSection(sections, t('projets.sections.technos', 'Technologies'), creerPastilles(projet.technos));
+  elements.push(sections);
+
+  const liensExternes = creerLiensExternes(projet);
+  if (liensExternes.length) {
+    const liens = document.createElement('div');
+    liens.className = 'liens modale-liens';
+    liens.append(...liensExternes);
+    elements.push(liens);
+  }
+
+  corpsModale.replaceChildren(...elements);
+}
+
+function ouvrirProjet(projet) {
+  projetOuvert = projet;
+  remplirModale(projet);
+  modale.showModal();
+  corpsModale.parentElement.scrollTop = 0;
+  modale.querySelector('.modale-fermer').focus();
+}
+
+modale.querySelector('.modale-fermer').addEventListener('click', () => modale.close());
+
+modale.addEventListener('click', (event) => {
+  if (event.target === modale) modale.close();
+});
+
+modale.addEventListener('close', () => {
+  projetOuvert = null;
+});
 
 chargerProjets();
 
