@@ -1,0 +1,50 @@
+{
+  "techniques": [
+    {
+      "categorie": { "fr": "Web", "en": "Web" },
+      "items": [
+        { "nom": "HTML / CSS", "niveau": 4 },
+        { "nom": "JavaScript", "niveau": 3 },
+        { "nom": "PHP", "niveau": 3 },
+        { "nom": "Laravel", "niveau": 1 }
+      ]
+    },
+    {
+      "categorie": { "fr": "Langages", "en": "Programming" },
+      "items": [
+        { "nom": "C# (.NET, WPF)", "niveau": 3 },
+        { "nom": "Python", "niveau": 3 }
+      ]
+    },
+    {
+      "categorie": { "fr": "Bases de données", "en": "Databases" },
+      "items": [
+        { "nom": "SQL / PostgreSQL", "niveau": 3 },
+        { "nom": "MySQL / MariaDB", "niveau": 3 },
+        { "nom": { "fr": "Modélisation Merise", "en": "Merise data modelling" }, "niveau": 3 }
+      ]
+    },
+    {
+      "categorie": { "fr": "Systèmes et DevOps", "en": "Systems & DevOps" },
+      "items": [
+        { "nom": "Linux (Debian)", "niveau": 3 },
+        { "nom": "Docker / Compose", "niveau": 3 },
+        { "nom": "Nginx", "niveau": 2 },
+        { "nom": "Bash", "niveau": 2 }
+      ]
+    },
+    {
+      "categorie": { "fr": "Outils", "en": "Tools" },
+      "items": [
+        { "nom": "Git / GitHub", "niveau": 3 },
+        { "nom": "VS Code", "niveau": 4 },
+        { "nom": "Visual Studio", "niveau": 3 }
+      ]
+    }
+  ],
+  "langues": [
+    { "nom": { "fr": "Français", "en": "French" }, "niveau": "natif" },
+    { "nom": { "fr": "Anglais", "en": "English" }, "niveau": "B1" },
+    { "nom": { "fr": "Italien", "en": "Italian" }, "niveau": "A2" }
+  ]
+}

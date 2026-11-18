@@ -82,6 +82,7 @@ function appliquerTraductions() {
   majLabelBurger();
   majTitre();
   if (projets.length) afficherProjets();
+  if (competences) afficherCompetences();
 }
 
 async function changerLangue(lang) {
@@ -108,7 +109,7 @@ boutonsLangue.forEach((bouton) => {
 // ===== Menu burger =====
 const header = document.querySelector('header');
 const burger = document.querySelector('.burger');
-const liensMenu = document.querySelectorAll('nav a');
+const liensMenu = document.querySelectorAll('header nav a');
 
 function majLabelBurger() {
   if (header.classList.contains('ouvert')) {
@@ -165,7 +166,7 @@ majBordureHeader();
 
 // ===== Navigation =====
 const pages = document.querySelectorAll('main section[data-route]');
-const liensNav = document.querySelectorAll('nav a, .logo');
+const liensNav = document.querySelectorAll('header nav a, .logo');
 
 function majTitre() {
   const pageActive = document.querySelector('main section.active');
@@ -174,8 +175,15 @@ function majTitre() {
   }
 }
 
+// Anciennes adresses redirigées vers les nouvelles
+const ANCIENNES_ROUTES = { '/parcours': '/a-propos' };
+
 function afficherPage() {
-  const route = location.hash.slice(1) || '/';
+  let route = location.hash.slice(1) || '/';
+  if (ANCIENNES_ROUTES[route]) {
+    route = ANCIENNES_ROUTES[route];
+    history.replaceState(null, '', '#' + route);
+  }
   const pageCible = [...pages].find((page) => page.dataset.route === route) || document.querySelector('section[data-route="/"]');
 
   pages.forEach((page) => {
@@ -196,6 +204,49 @@ function afficherPage() {
 
 window.addEventListener('hashchange', afficherPage);
 afficherPage();
+
+// ===== Sommaire de la page À propos =====
+const sommaire = document.querySelector('.sommaire');
+const liensSommaire = sommaire.querySelectorAll('a[data-section]');
+
+// Hauteur du header en variable CSS : sert à coller le sommaire juste dessous
+function majHauteurHeader() {
+  document.documentElement.style.setProperty('--hauteur-header', `${header.offsetHeight}px`);
+}
+window.addEventListener('resize', majHauteurHeader);
+majHauteurHeader();
+
+// Clic : défilement vers la section (les ancres classiques casseraient le routeur par hash)
+liensSommaire.forEach((lien) => {
+  lien.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.getElementById(lien.dataset.section).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Met en évidence la section en cours de lecture
+function activerLienSommaire(id) {
+  liensSommaire.forEach((lien) => {
+    const actif = lien.dataset.section === id;
+    lien.classList.toggle('actif', actif);
+    if (actif) {
+      lien.setAttribute('aria-current', 'true');
+      // Sur mobile, le sommaire défile horizontalement : on garde le lien actif visible
+      const liste = sommaire.querySelector('ul');
+      liste.scrollTo({ left: lien.offsetLeft - 16, behavior: 'smooth' });
+    } else {
+      lien.removeAttribute('aria-current');
+    }
+  });
+}
+
+const observateurSections = new IntersectionObserver((entrees) => {
+  entrees.forEach((entree) => {
+    if (entree.isIntersecting) activerLienSommaire(entree.target.id);
+  });
+}, { rootMargin: '-35% 0px -60% 0px' });
+
+document.querySelectorAll('.sommaire-cible').forEach((section) => observateurSections.observe(section));
 
 // ===== Projets =====
 const listeProjets = document.querySelector('#liste-projets');   // page Projets : tous
@@ -299,6 +350,106 @@ function creerCarte(projet, niveauTitre) {
 }
 
 chargerProjets();
+
+// ===== Compétences et langues =====
+// Les données sont dans data/competences.json : pour ajouter une compétence
+// ou changer un niveau, il suffit de modifier ce fichier.
+const listeCompetences = document.querySelector('#liste-competences');
+const listeLangues = document.querySelector('#liste-langues');
+const legendeNiveaux = document.querySelector('#legende-niveaux');
+const NIVEAU_MAX = 6;
+const ECHELLE_LANGUES = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6, natif: 6 };
+let competences = null;
+
+async function chargerCompetences() {
+  try {
+    const reponse = await fetch('data/competences.json');
+    if (!reponse.ok) throw new Error(`Erreur HTTP ${reponse.status}`);
+    competences = await reponse.json();
+    afficherCompetences();
+  } catch (erreur) {
+    console.error(erreur);
+  }
+}
+
+// Jauge en segments : creerJauge(3, 6, 'Intermédiaire') → ■■■□□□
+function creerJauge(valeur, max, libelle) {
+  const jauge = document.createElement('span');
+  jauge.className = 'jauge';
+  jauge.setAttribute('role', 'img');
+  jauge.setAttribute('aria-label', libelle);
+  jauge.title = libelle;
+
+  for (let i = 1; i <= max; i++) {
+    const segment = document.createElement('span');
+    segment.className = i <= valeur ? 'jauge-segment jauge-segment--plein' : 'jauge-segment';
+    jauge.append(segment);
+  }
+  return jauge;
+}
+
+function libelleNiveau(niveau) {
+  const secours = ['', 'Débutant', 'Notions', 'Intermédiaire', 'Confirmé', 'Avancé', 'Expert'];
+  return t(`competences.niveaux.${niveau}`, secours[niveau]);
+}
+
+function afficherCompetences() {
+  // Légende : 1 Débutant · 2 Notions · … · 6 Expert
+  const elementsLegende = [];
+  for (let niveau = 1; niveau <= NIVEAU_MAX; niveau++) {
+    const item = document.createElement('span');
+    item.className = 'legende-item';
+    const numero = document.createElement('span');
+    numero.className = 'legende-numero';
+    numero.textContent = niveau;
+    const texte = document.createElement('span');
+    texte.textContent = libelleNiveau(niveau);
+    item.append(numero, texte);
+    elementsLegende.push(item);
+  }
+  legendeNiveaux.replaceChildren(...elementsLegende);
+
+  // Une carte par catégorie
+  listeCompetences.replaceChildren(...competences.techniques.map((groupe) => {
+    const carte = document.createElement('li');
+    carte.className = 'carte carte-competences';
+
+    const titre = document.createElement('h3');
+    titre.textContent = texteLocalise(groupe.categorie);
+
+    const liste = document.createElement('ul');
+    liste.className = 'liste-niveaux';
+    groupe.items.forEach((item) => {
+      const ligne = document.createElement('li');
+      const nom = document.createElement('span');
+      nom.textContent = texteLocalise(item.nom);
+      ligne.append(nom, creerJauge(item.niveau, NIVEAU_MAX, libelleNiveau(item.niveau)));
+      liste.append(ligne);
+    });
+
+    carte.append(titre, liste);
+    return carte;
+  }));
+
+  // Une carte par langue
+  listeLangues.replaceChildren(...competences.langues.map((langue) => {
+    const carte = document.createElement('li');
+    carte.className = 'carte carte-langue';
+
+    const titre = document.createElement('h3');
+    titre.textContent = texteLocalise(langue.nom);
+
+    const libelle = t(`langues.niveaux.${langue.niveau}`, langue.niveau);
+    const niveau = document.createElement('p');
+    niveau.className = 'carte-sous-titre';
+    niveau.textContent = libelle;
+
+    carte.append(titre, niveau, creerJauge(ECHELLE_LANGUES[langue.niveau] ?? 0, 6, libelle));
+    return carte;
+  }));
+}
+
+chargerCompetences();
 
 // ===== Copier l'adresse email =====
 document.querySelectorAll('[data-copier]').forEach((bouton) => {

@@ -4,7 +4,7 @@
   },
   "pages": {
     "accueil": "Accueil",
-    "parcours": "Parcours",
+    "parcours": "À propos",
     "projets": "Projets",
     "freelance": "Freelance",
     "contact": "Contact"
@@ -12,24 +12,30 @@
   "aria": {
     "choixLangue": "Choix de la langue",
     "ouvrirMenu": "Ouvrir le menu",
-    "fermerMenu": "Fermer le menu"
+    "fermerMenu": "Fermer le menu",
+    "sommaire": "Sommaire de la page"
   },
   "nav": {
-    "parcours": "Parcours",
+    "parcours": "À propos",
     "projets": "Projets",
     "freelance": "Freelance",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "CV"
+  },
+  "cv": {
+    "fichier": "assets/cv/Antoine-Degeorges-CV-en.pdf"
   },
   "commun": {
-    "meContacter": "Me contacter",
+    "telechargerCv": "Télécharger mon CV",
     "bandeStageTitre": "Un stage ou une alternance à proposer ?",
-    "bandeStageTexte": "Écrivez-moi, je serai ravi d'en parler avec vous."
+    "bandeStageTexte": "Écrivez-moi, je serai ravi d'en parler avec vous.",
+    "meContacter": "Me contacter"
   },
   "accueil": {
     "titre": "Salut, moi c'est Antoine.",
     "role": "Étudiant en BUT Informatique, et déjà ",
     "roleAccent": "développeur web freelance.",
-    "intro": "J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.",
+    "intro": "J'ai 19 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je lance mon activité de développeur web freelance. Je suis actuellement à la recherche d'un stage.",
     "voirProjets": "Voir mes projets",
     "badge": "En recherche de stage & d'alternance",
     "outilsTitre": "Avec quoi je travaille",
@@ -38,13 +44,13 @@
     "formationTexte": "2e année de BUT Informatique à l'IUT d'Annecy, Université Savoie Mont Blanc : développement, bases de données, systèmes et réseaux, gestion de projet.",
     "formationLien": "Voir mon parcours",
     "productionTitre": "En production",
-    "productionTexte": "Développeur web freelance : je conçois des sites pour des clients, je les publie sur un serveur que j'administre et je les fais évoluer.",
+    "productionTexte": "Développeur web freelance : je conçois des sites, je les publie sur un serveur que j'administre et je les fais évoluer.",
     "productionLien": "Voir mon activité",
     "projetsTitre": "Projets",
     "projetsLien": "Tous les projets"
   },
   "parcours": {
-    "titre": "Parcours",
+    "titre": "À propos",
     "intro": "Je suis en 2e année de BUT Informatique à l'IUT d'Annecy. En parallèle, je développe des sites en freelance : ce que j'apprends en cours, je l'applique sur de vrais projets.",
     "chercheTitre": "Ce que je cherche",
     "stageTitre": "Stage de 2e année",
@@ -52,26 +58,101 @@
     "stageDates": "Dates : avril à juin 2027",
     "alternanceTitre": "Alternance",
     "alternanceSousTitre": "3e année de BUT, 2027 – 2028",
-    "timelineTitre": "Formation et expérience",
-    "but3Titre": "BUT Informatique – 3e année",
+    "experienceTitre": "Expérience",
+    "depuis": "Depuis",
+    "exp": {
+      "freelance": {
+        "date": "oct. 2026",
+        "titre": "Développeur web freelance",
+        "lieu": "Micro-entreprise · Annecy, France",
+        "texte": "Création, hébergement et maintenance de sites web pour les petites entreprises, avec la gestion des devis, des contrats et de la relation client. J'ai conçu et j'administre seul le serveur d'hébergement : VPS OVHcloud sous Debian, conteneurs Docker sur des réseaux isolés, scripts Bash de sauvegarde, de déploiement et d'audit de sécurité.",
+        "lien": "Voir l'activité"
+      },
+      "benevolt": {
+        "date": "sept. 2026",
+        "titre": "SAÉ 3.01 – Benevolt",
+        "lieu": "Projet universitaire en équipe de 4 · IUT d'Annecy, France",
+        "texte": "Projet fictif inspiré de Benevolt, une plateforme qui met en relation des bénévoles et des associations. J'ai rédigé les cas d'utilisation des espaces Association et Administration, puis écrit les contraintes et le jeu de test SQL de la base PostgreSQL générée à partir du MCD. Le développement en Laravel, en méthode Scrum, commence prochainement."
+      },
+      "ogplay": {
+        "titre": "SAÉ 2.02 – OGP'Lay",
+        "lieu": "Projet universitaire en équipe de 6 · IUT d'Annecy, France",
+        "texte": "Jeu de simulation d'une entreprise agroalimentaire. Modélisation des chaînes de production sous forme de graphes, puis optimisation du plan de production par programmation linéaire : +75,9 % de bénéfice par rapport à une approche gloutonne. Résultats présentés à l'oral."
+      },
+      "mobalpa": {
+        "titre": "SAÉ 2.01 – MobAlpa",
+        "lieu": "Projet universitaire en équipe de 3 · IUT d'Annecy, France",
+        "texte": "Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec deux rôles : commercial et responsable de magasin. J'ai développé le menu de navigation et les quatre écrans principaux, factorisé les styles de l'interface, puis réalisé la gestion des clients (liste, recherche, création, suppression) et la gestion des rôles, avec un catalogue en CRUD réservé au responsable."
+      }
+    },
     "etiquettes": {
-      "aVenir": "À venir",
       "enCours": "En cours",
-      "terminee": "Terminée",
-      "parallele": "En parallèle",
       "obtenu": "Obtenu"
     },
-    "but3Texte": "Année que je souhaite faire en alternance.",
-    "but2Titre": "BUT Informatique – 2e année",
-    "but2Texte": "IUT d'Annecy. Stage en entreprise en fin d'année.",
-    "but1Titre": "BUT Informatique – 1re année",
-    "but1Texte": "IUT d'Annecy.",
-    "depuis": "Depuis",
-    "freelanceDate": "octobre 2026",
-    "freelanceTitre": "Développeur web freelance",
-    "freelanceTexte": "Création et mise en ligne de sites pour des clients, en même temps que mes études.",
-    "bacTitre": "Baccalauréat technologique – Lycée de l'Albanais",
-    "bacTexte": "Spécialité Systèmes d'Information et Numérique.",
+    "voirProjet": "Voir le projet",
+    "formationTitre": "Formation",
+    "form": {
+      "but": {
+        "titre": "BUT Informatique",
+        "lieu": "IUT d'Annecy, Université Savoie Mont Blanc · Annecy, France",
+        "texte": "Diplôme en 3 ans, parcours A : Réalisation d'applications. 2e année en cours, avec un stage d'avril à juin 2027 ; 3e année visée en alternance."
+      },
+      "bac": {
+        "titre": "Baccalauréat STI2D, spécialité SIN",
+        "lieu": "Lycée de l'Albanais · Rumilly, France",
+        "texte": "Sciences et technologies de l'industrie et du développement durable, spécialité Systèmes d'Information et Numérique."
+      }
+    },
+    "competencesTitre": "Compétences techniques",
+    "softTitre": "Qualités personnelles",
+    "soft": {
+      "autonome": {
+        "titre": "Autonome, force de proposition",
+        "texte": "J'ai lancé ma micro-entreprise et j'administre seul mon serveur."
+      },
+      "rigoureux": {
+        "titre": "Méthodique et organisé",
+        "texte": "J'ai documenté mon infrastructure dans un manuel d'exploitation et automatisé ses contrôles de sécurité."
+      },
+      "equipe": {
+        "titre": "Adaptable et débrouillard",
+        "texte": "Je passe d'un langage à l'autre selon les projets (C#, PHP, Python, JavaScript) et je me forme seul aux outils qui me manquent."
+      },
+      "curieux": {
+        "titre": "Précis et analytique",
+        "texte": "Sur OGP'Lay, l'analyse des contraintes de production a mené à un modèle d'optimisation qui augmente le bénéfice de 75,9 %."
+      }
+    },
+    "languesTitre": "Langues",
+    "interetsTitre": "Centres d'intérêt",
+    "interets": {
+      "muscu": {
+        "titre": "Musculation",
+        "texte": "Depuis février 2026, 3 à 4 séances par semaine en salle (Basic-Fit Épagny). Objectif : atteindre 80 kg avant 2028."
+      },
+      "jeux": {
+        "titre": "Jeux vidéo",
+        "texte": "Surtout des jeux en équipe : Counter-Strike 2, Rocket League et Sea of Thieves, mais aussi GTA."
+      },
+      "moto": {
+        "titre": "Moto et mécanique",
+        "texte": "Pendant mes années de lycée, j'ai eu une 50 cm³ Derbi. Ce qui m'attirait surtout, c'était la mécanique."
+      },
+      "rap": {
+        "titre": "Rap français",
+        "texte": "C'est le style de musique que j'écoute le plus."
+      }
+    },
+    "referencesTitre": "Références",
+    "references": {
+      "vibrac": {
+        "poste": "Enseignante d'anglais, coordinatrice internationale"
+      },
+      "structure": "Université Savoie Mont Blanc / IUT d'Annecy, France",
+      "damas": {
+        "poste": "Maître de conférences en programmation"
+      }
+    },
     "butTitre": "Ce que couvre le BUT Informatique",
     "butIntro": "Le diplôme est construit autour de six compétences, travaillées pendant les trois ans. Mon parcours de spécialité : ",
     "butSpecialite": "Réalisation d'applications",
@@ -107,11 +188,41 @@
         "texte": "S'intégrer dans une équipe, communiquer et partager le travail."
       }
     },
-    "langagesTitre": "Langages vus en cours :"
+    "langagesTitre": "Langages vus en cours :",
+    "sommaire": {
+      "experience": "Expérience",
+      "formation": "Formation",
+      "competences": "Compétences",
+      "qualites": "Qualités",
+      "langues": "Langues",
+      "interets": "Centres d'intérêt",
+      "references": "Références"
+    }
+  },
+  "competences": {
+    "niveaux": {
+      "1": "Débutant",
+      "2": "Notions",
+      "3": "Intermédiaire",
+      "4": "Confirmé",
+      "5": "Avancé",
+      "6": "Expert"
+    }
+  },
+  "langues": {
+    "niveaux": {
+      "natif": "Langue maternelle",
+      "A1": "A1 – Débutant",
+      "A2": "A2 – Élémentaire",
+      "B1": "B1 – Intermédiaire",
+      "B2": "B2 – Intermédiaire avancé",
+      "C1": "C1 – Avancé",
+      "C2": "C2 – Maîtrise"
+    }
   },
   "projets": {
     "titre": "Projets",
-    "intro": "Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.",
+    "intro": "Des projets menés en BUT et ce que je construis sur mon temps libre.",
     "visiter": "Visiter le projet",
     "code": "Voir le code",
     "erreur": "Impossible de charger les projets."

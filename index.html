@@ -23,10 +23,11 @@
         </button>
         <nav>
             <ul id="menu">
-                <li><a href="#/parcours" data-i18n="nav.parcours">Parcours</a></li>
+                <li><a href="#/a-propos" data-i18n="nav.parcours">À propos</a></li>
                 <li><a href="#/projets" data-i18n="nav.projets">Projets</a></li>
                 <li><a href="#/freelance" data-i18n="nav.freelance">Freelance</a></li>
                 <li><a href="#/contact" data-i18n="nav.contact">Contact</a></li>
+                <li class="nav-cv"><a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="lien-cv" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="nav.cv">CV</span></a></li>
             </ul>
         </nav>
         <div class="choix-langue" role="group" data-langue="fr" aria-label="Choix de la langue" data-i18n-attr="aria-label:aria.choixLangue">
@@ -34,7 +35,6 @@
             <button type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
         </div>
 
-        <!-- À FAIRE : réactiver une fois assets/cv.pdf ajouté -->
       </div>
     </header>
 
@@ -46,10 +46,10 @@
                 <div>
                     <h1 data-i18n="accueil.titre">Salut, moi c'est Antoine.</h1>
                     <p class="heros-role"><span data-i18n="accueil.role">Étudiant en BUT Informatique, et déjà </span><span class="accent" data-i18n="accueil.roleAccent">développeur web freelance.</span></p>
-                    <p class="heros-intro" data-i18n="accueil.intro">J'ai 18 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je réalise des sites web pour mes clients. Je suis actuellement à la recherche d'un stage.</p>
+                    <p class="heros-intro" data-i18n="accueil.intro">J'ai 19 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je lance mon activité de développeur web freelance. Je suis actuellement à la recherche d'un stage.</p>
                     <div class="actions">
-                        <a href="#/contact" class="bouton bouton--plein"><span data-i18n="commun.meContacter">Me contacter</span> <span class="fleche" aria-hidden="true">→</span></a>
-                        <a href="#/projets" class="bouton bouton--contour" data-i18n="accueil.voirProjets">Voir mes projets</a>
+                        <a href="#/projets" class="bouton bouton--plein"><span data-i18n="accueil.voirProjets">Voir mes projets</span> <span class="fleche" aria-hidden="true">→</span></a>
+                        <a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="bouton bouton--contour" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></a>
                     </div>
                 </div>
                 <div class="portrait">
@@ -92,12 +92,12 @@
                             <span class="icone icone--formation"></span>
                             <h3 data-i18n="accueil.formationTitre">En formation</h3>
                             <p data-i18n="accueil.formationTexte">2e année de BUT Informatique à l'IUT d'Annecy, Université Savoie Mont Blanc : développement, bases de données, systèmes et réseaux, gestion de projet.</p>
-                            <a href="#/parcours" class="lien-fleche" data-i18n="accueil.formationLien">Voir mon parcours</a>
+                            <a href="#/a-propos" class="lien-fleche" data-i18n="accueil.formationLien">Voir mon parcours</a>
                         </div>
                         <div class="encart">
                             <span class="icone icone--serveur"></span>
                             <h3 data-i18n="accueil.productionTitre">En production</h3>
-                            <p data-i18n="accueil.productionTexte">Développeur web freelance : je conçois des sites pour des clients, je les publie sur un serveur que j'administre et je les fais évoluer.</p>
+                            <p data-i18n="accueil.productionTexte">Développeur web freelance : je conçois des sites, je les publie sur un serveur que j'administre et je les fais évoluer.</p>
                             <a href="#/freelance" class="lien-fleche" data-i18n="accueil.productionLien">Voir mon activité</a>
                         </div>
                     </div>
@@ -127,14 +127,16 @@
             </div>
         </section>
 
-        <!-- ===================== PARCOURS ===================== -->
-        <section data-route="/parcours" data-title="Parcours" data-i18n-attr="data-title:pages.parcours">
+        <!-- ===================== À PROPOS ===================== -->
+        <section data-route="/a-propos" data-title="À propos" data-i18n-attr="data-title:pages.parcours">
             <div class="conteneur">
                 <div class="entete">
-                    <h1 data-i18n="parcours.titre">Parcours</h1>
+                    <h1 data-i18n="parcours.titre">À propos</h1>
                     <p data-i18n="parcours.intro">Je suis en 2e année de BUT Informatique à l'IUT d'Annecy. En parallèle, je développe des sites en freelance : ce que j'apprends en cours, je l'applique sur de vrais projets.</p>
                 </div>
             </div>
+
+
 
             <div class="bloc bloc--haut-reduit">
                 <div class="conteneur">
@@ -157,48 +159,214 @@
                 </div>
             </div>
 
-            <div class="bloc bloc--separe">
+            <!-- ===== Sommaire de la page (reste collé sous le header) ===== -->
+            <nav class="sommaire" aria-label="Sommaire de la page" data-i18n-attr="aria-label:aria.sommaire">
+                <div class="conteneur">
+                    <ul>
+                        <li><a href="#/a-propos" data-section="experience" data-i18n="parcours.sommaire.experience">Expérience</a></li>
+                        <li><a href="#/a-propos" data-section="formation" data-i18n="parcours.sommaire.formation">Formation</a></li>
+                        <li><a href="#/a-propos" data-section="competences" data-i18n="parcours.sommaire.competences">Compétences</a></li>
+                        <li><a href="#/a-propos" data-section="qualites" data-i18n="parcours.sommaire.qualites">Qualités</a></li>
+                        <li><a href="#/a-propos" data-section="langues" data-i18n="parcours.sommaire.langues">Langues</a></li>
+                        <li><a href="#/a-propos" data-section="interets" data-i18n="parcours.sommaire.interets">Centres d'intérêt</a></li>
+                        <li><a href="#/a-propos" data-section="references" data-i18n="parcours.sommaire.references">Références</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- ===== Expérience ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="experience">
                 <div class="conteneur">
                     <div class="bloc-entete">
-                        <h2 data-i18n="parcours.timelineTitre">Formation et expérience</h2>
+                        <h2 data-i18n="parcours.experienceTitre">Expérience</h2>
                     </div>
                     <ol class="parcours">
-                        <li>
-                            <p class="parcours-date"><time datetime="2027">2027</time> – <time datetime="2028">2028</time></p>
+                        <li class="parcours-actuel">
+                            <p class="parcours-date"><span data-i18n="parcours.depuis">Depuis</span> <time datetime="2026-10" data-i18n="parcours.exp.freelance.date">oct. 2026</time></p>
                             <div>
-                                <h3><span data-i18n="parcours.but3Titre">BUT Informatique – 3e année</span> <span class="etiquette" data-i18n="parcours.etiquettes.aVenir">À venir</span></h3>
-                                <p data-i18n="parcours.but3Texte">Année que je souhaite faire en alternance.</p>
+                                <h3><span data-i18n="parcours.exp.freelance.titre">Développeur web freelance</span> <span class="etiquette etiquette--accent" data-i18n="parcours.etiquettes.enCours">En cours</span></h3>
+                                <p class="parcours-lieu" data-i18n="parcours.exp.freelance.lieu">Micro-entreprise · Annecy, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.exp.freelance.texte">Création, hébergement et maintenance de sites web pour les petites entreprises, avec la gestion des devis, des contrats et de la relation client. J'ai conçu et j'administre seul le serveur d'hébergement : VPS OVHcloud sous Debian, conteneurs Docker sur des réseaux isolés, scripts Bash de sauvegarde, de déploiement et d'audit de sécurité.</p>
+                                <ul class="pastilles">
+                                    <li>Docker</li>
+                                    <li>Linux</li>
+                                    <li>Nginx</li>
+                                    <li>Bash</li>
+                                    <li>PHP</li>
+                                </ul>
+                                <a href="#/freelance" class="lien-fleche" data-i18n="parcours.exp.freelance.lien">Voir l'activité</a>
                             </div>
                         </li>
                         <li class="parcours-actuel">
-                            <p class="parcours-date"><time datetime="2026">2026</time> – <time datetime="2027">2027</time></p>
+                            <p class="parcours-date"><span data-i18n="parcours.depuis">Depuis</span> <time datetime="2026-09" data-i18n="parcours.exp.benevolt.date">sept. 2026</time></p>
                             <div>
-                                <h3><span data-i18n="parcours.but2Titre">BUT Informatique – 2e année</span> <span class="etiquette etiquette--accent" data-i18n="parcours.etiquettes.enCours">En cours</span></h3>
-                                <p data-i18n="parcours.but2Texte">IUT d'Annecy. Stage en entreprise en fin d'année.</p>
+                                <h3><span data-i18n="parcours.exp.benevolt.titre">SAÉ 3.01 – Benevolt</span> <span class="etiquette etiquette--accent" data-i18n="parcours.etiquettes.enCours">En cours</span></h3>
+                                <p class="parcours-lieu" data-i18n="parcours.exp.benevolt.lieu">Projet universitaire en équipe de 4 · IUT d'Annecy, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.exp.benevolt.texte">Projet fictif inspiré de Benevolt, une plateforme qui met en relation des bénévoles et des associations. J'ai rédigé les cas d'utilisation des espaces Association et Administration, puis écrit les contraintes et le jeu de test SQL de la base PostgreSQL générée à partir du MCD. Le développement en Laravel, en méthode Scrum, commence prochainement.</p>
+                                <ul class="pastilles">
+                                    <li>PostgreSQL</li>
+                                    <li>SQL</li>
+                                    <li>Merise</li>
+                                    <li>Laravel</li>
+                                    <li>Scrum</li>
+                                </ul>
                             </div>
                         </li>
                         <li>
-                            <p class="parcours-date"><time datetime="2025">2025</time> – <time datetime="2026">2026</time></p>
+                            <p class="parcours-date"><time datetime="2026">2026</time></p>
                             <div>
-                                <h3><span data-i18n="parcours.but1Titre">BUT Informatique – 1re année</span> <span class="etiquette" data-i18n="parcours.etiquettes.terminee">Terminée</span></h3>
-                                <p data-i18n="parcours.but1Texte">IUT d'Annecy.</p>
+                                <h3 data-i18n="parcours.exp.ogplay.titre">SAÉ 2.02 – OGP'Lay</h3>
+                                <p class="parcours-lieu" data-i18n="parcours.exp.ogplay.lieu">Projet universitaire en équipe de 6 · IUT d'Annecy, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.exp.ogplay.texte">Jeu de simulation d'une entreprise agroalimentaire. Modélisation des chaînes de production sous forme de graphes, puis optimisation du plan de production par programmation linéaire : +75,9 % de bénéfice par rapport à une approche gloutonne. Résultats présentés à l'oral.</p>
+                                <ul class="pastilles">
+                                    <li>Python</li>
+                                    <li>PuLP</li>
+                                    <li>Graphviz</li>
+                                </ul>
+                                <a href="#/projets" class="lien-fleche" data-i18n="parcours.voirProjet">Voir le projet</a>
                             </div>
                         </li>
-                        <li class="parcours-parallele">
-                            <p class="parcours-date"><span data-i18n="parcours.depuis">Depuis</span> <time datetime="2026-10" data-i18n="parcours.freelanceDate">octobre 2026</time></p>
+                        <li>
+                            <p class="parcours-date"><time datetime="2026">2026</time></p>
                             <div>
-                                <h3><span data-i18n="parcours.freelanceTitre">Développeur web freelance</span> <span class="etiquette etiquette--accent" data-i18n="parcours.etiquettes.parallele">En parallèle</span></h3>
-                                <p data-i18n="parcours.freelanceTexte">Création et mise en ligne de sites pour des clients, en même temps que mes études.</p>
+                                <h3 data-i18n="parcours.exp.mobalpa.titre">SAÉ 2.01 – MobAlpa</h3>
+                                <p class="parcours-lieu" data-i18n="parcours.exp.mobalpa.lieu">Projet universitaire en équipe de 3 · IUT d'Annecy, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.exp.mobalpa.texte">Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec deux rôles : commercial et responsable de magasin. J'ai développé le menu de navigation et les quatre écrans principaux, factorisé les styles de l'interface, puis réalisé la gestion des clients (liste, recherche, création, suppression) et la gestion des rôles, avec un catalogue en CRUD réservé au responsable.</p>
+                                <ul class="pastilles">
+                                    <li>C#</li>
+                                    <li>.NET</li>
+                                    <li>WPF</li>
+                                    <li>PostgreSQL</li>
+                                </ul>
+                                <a href="#/projets" class="lien-fleche" data-i18n="parcours.voirProjet">Voir le projet</a>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- ===== Formation ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="formation">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2 data-i18n="parcours.formationTitre">Formation</h2>
+                    </div>
+                    <ol class="parcours">
+                        <li class="parcours-actuel">
+                            <p class="parcours-date"><time datetime="2025">2025</time> – <time datetime="2028">2028</time></p>
+                            <div>
+                                <h3><span data-i18n="parcours.form.but.titre">BUT Informatique</span> <span class="etiquette etiquette--accent" data-i18n="parcours.etiquettes.enCours">En cours</span></h3>
+                                <p class="parcours-lieu" data-i18n="parcours.form.but.lieu">IUT d'Annecy, Université Savoie Mont Blanc · Annecy, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.form.but.texte">Diplôme en 3 ans, parcours A : Réalisation d'applications. 2e année en cours, avec un stage d'avril à juin 2027 ; 3e année visée en alternance.</p>
                             </div>
                         </li>
                         <li>
                             <p class="parcours-date"><time datetime="2025">2025</time></p>
                             <div>
-                                <h3><span data-i18n="parcours.bacTitre">Baccalauréat technologique – Lycée de l'Albanais</span> <span class="etiquette" data-i18n="parcours.etiquettes.obtenu">Obtenu</span></h3>
-                                <p data-i18n="parcours.bacTexte">Spécialité Systèmes d'Information et Numérique.</p>
+                                <h3><span data-i18n="parcours.form.bac.titre">Baccalauréat STI2D, spécialité SIN</span> <span class="etiquette" data-i18n="parcours.etiquettes.obtenu">Obtenu</span></h3>
+                                <p class="parcours-lieu" data-i18n="parcours.form.bac.lieu">Lycée de l'Albanais · Rumilly, France</p>
+                                <p class="parcours-texte" data-i18n="parcours.form.bac.texte">Sciences et technologies de l'industrie et du développement durable, spécialité Systèmes d'Information et Numérique.</p>
                             </div>
                         </li>
                     </ol>
+                </div>
+            </div>
+
+            <!-- ===== Compétences (générées depuis data/competences.json) ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="competences">
+                <div class="conteneur">
+                    <div class="bloc-entete bloc-entete--colonne">
+                        <h2 data-i18n="parcours.competencesTitre">Compétences techniques</h2>
+                        <p class="legende-niveaux" id="legende-niveaux"></p>
+                    </div>
+                    <ul class="grille grille--3" id="liste-competences"></ul>
+                </div>
+            </div>
+
+            <!-- ===== Soft skills ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="qualites">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2 data-i18n="parcours.softTitre">Qualités personnelles</h2>
+                    </div>
+                    <ul class="grille grille--2">
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.soft.autonome.titre">Autonome, force de proposition</h3>
+                            <p data-i18n="parcours.soft.autonome.texte">J'ai lancé ma micro-entreprise et j'administre seul mon serveur.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.soft.rigoureux.titre">Méthodique et organisé</h3>
+                            <p data-i18n="parcours.soft.rigoureux.texte">J'ai documenté mon infrastructure dans un manuel d'exploitation et automatisé ses contrôles de sécurité.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.soft.equipe.titre">Adaptable et débrouillard</h3>
+                            <p data-i18n="parcours.soft.equipe.texte">Je passe d'un langage à l'autre selon les projets (C#, PHP, Python, JavaScript) et je me forme seul aux outils qui me manquent.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.soft.curieux.titre">Précis et analytique</h3>
+                            <p data-i18n="parcours.soft.curieux.texte">Sur OGP'Lay, l'analyse des contraintes de production a mené à un modèle d'optimisation qui augmente le bénéfice de 75,9 %.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== Langues (générées depuis data/competences.json) ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="langues">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2 data-i18n="parcours.languesTitre">Langues</h2>
+                    </div>
+                    <ul class="grille grille--3" id="liste-langues"></ul>
+                </div>
+            </div>
+
+            <!-- ===== Centres d'intérêt ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="interets">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2 data-i18n="parcours.interetsTitre">Centres d'intérêt</h2>
+                    </div>
+                    <ul class="grille grille--2">
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.interets.muscu.titre">Musculation</h3>
+                            <p data-i18n="parcours.interets.muscu.texte">Depuis février 2026, 3 à 4 séances par semaine en salle (Basic-Fit Épagny). Objectif : atteindre 80 kg avant 2028.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.interets.jeux.titre">Jeux vidéo</h3>
+                            <p data-i18n="parcours.interets.jeux.texte">Surtout des jeux en équipe : Counter-Strike 2, Rocket League et Sea of Thieves, mais aussi GTA.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.interets.moto.titre">Moto et mécanique</h3>
+                            <p data-i18n="parcours.interets.moto.texte">Pendant mes années de lycée, j'ai eu une 50 cm³ Derbi. Ce qui m'attirait surtout, c'était la mécanique.</p>
+                        </li>
+                        <li class="encart encart--trait">
+                            <h3 data-i18n="parcours.interets.rap.titre">Rap français</h3>
+                            <p data-i18n="parcours.interets.rap.texte">C'est le style de musique que j'écoute le plus.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== Références ===== -->
+            <div class="bloc bloc--separe sommaire-cible" id="references">
+                <div class="conteneur">
+                    <div class="bloc-entete">
+                        <h2 data-i18n="parcours.referencesTitre">Références</h2>
+                    </div>
+                    <ul class="grille grille--2">
+                        <li class="carte">
+                            <h3>Stéphanie Vibrac</h3>
+                            <p class="carte-sous-titre" data-i18n="parcours.references.vibrac.poste">Enseignante d'anglais, coordinatrice internationale</p>
+                            <p data-i18n="parcours.references.structure">Université Savoie Mont Blanc / IUT d'Annecy, France</p>
+                            <p class="carte-detail"><a href="mailto:stephanie.vibrac@univ-smb.fr">stephanie.vibrac@univ-smb.fr</a></p>
+                        </li>
+                        <li class="carte">
+                            <h3>Luc Damas</h3>
+                            <p class="carte-sous-titre" data-i18n="parcours.references.damas.poste">Maître de conférences en programmation</p>
+                            <p data-i18n="parcours.references.structure">Université Savoie Mont Blanc / IUT d'Annecy, France</p>
+                            <p class="carte-detail"><a href="mailto:luc.damas@univ-smb.fr">luc.damas@univ-smb.fr</a></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -273,7 +441,7 @@
             <div class="conteneur">
                 <div class="entete">
                     <h1 data-i18n="projets.titre">Projets</h1>
-                    <p data-i18n="projets.intro">Des sites réalisés pour des clients, des projets menés en BUT et ce que je construis sur mon temps libre.</p>
+                    <p data-i18n="projets.intro">Des projets menés en BUT et ce que je construis sur mon temps libre.</p>
                 </div>
                 <ul class="grille-projets" id="liste-projets"></ul>
             </div>
@@ -415,6 +583,7 @@
                                 <dd data-i18n="contact.alternanceDates">3e année de BUT, 2027 – 2028</dd>
                             </div>
                         </dl>
+                        <a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="bouton bouton--contour bouton-cv-contact" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></a>
                     </div>
                 </div>
             </div>

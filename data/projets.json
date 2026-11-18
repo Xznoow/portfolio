@@ -1,25 +1,83 @@
 [
   {
+    "titre": "MobAlpa",
+    "description": {
+      "fr": "Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec des droits différents pour les commerciaux et les responsables. Ma part : navigation et écrans principaux, styles de l'interface, gestion des clients et des rôles, CRUD du catalogue.",
+      "en": "Desktop quote management application for a fictional kitchen company modelled on Mobalpa, with different permissions for sales staff and managers. My part: navigation and main screens, interface styles, client and role management, catalogue CRUD."
+    },
+    "categorie": {
+      "fr": "Universitaire",
+      "en": "University project"
+    },
+    "annee": "2026",
+    "equipe": 3,
+    "technos": [
+      "C#",
+      ".NET",
+      "WPF",
+      "PostgreSQL"
+    ],
+    "image": "assets/img/projet/MobAlpa.png"
+  },
+    {
     "titre": "MineBot-Panel",
     "description": {
       "fr": "Panel web local pour piloter des bots Minecraft (en cours de développement). Fonctionnalités actuelles : chat en temps réel, envoi de messages et connexion aux serveurs jusqu'à la 26.3 via ViaProxy.",
       "en": "Local web panel to control Minecraft bots (in development). Current features: real-time chat, sending messages and connecting to servers up to version 26.3 via ViaProxy."
     },
-    "categorie": { "fr": "Personnel", "en": "Personal" },
-    "annee": "2026-2027",
-    "technos": ["JavaScript", "Node.js", "Socket.IO", "HTML", "CSS"],
+    "categorie": {
+      "fr": "Personnel",
+      "en": "Personal"
+    },
+    "annee": "2026",
+    "technos": [
+      "JavaScript",
+      "Node.js",
+      "Socket.IO",
+      "HTML",
+      "CSS"
+    ],
     "image": "assets/img/projet/MineBot-Panel.png",
     "code": "https://github.com/Xznoow/minebot-panel"
   },
   {
-    "titre": { "fr": "Arbre-généalogique", "en": "Family tree" },
+    "titre": "OGP'Lay",
+    "description": {
+      "fr": "Optimisation d'un jeu de simulation d'entreprise agroalimentaire : chaînes de production modélisées en graphes et plan de production calculé par programmation linéaire, pour +75,9 % de bénéfice par rapport à une approche gloutonne.",
+      "en": "Optimisation of a food-industry business simulation game: production chains modelled as graphs and a production plan computed with linear programming, for 75.9% more profit than a greedy approach."
+    },
+    "categorie": {
+      "fr": "Universitaire",
+      "en": "University project"
+    },
+    "annee": "2026",
+    "equipe": 6,
+    "technos": [
+      "Python",
+      "PuLP",
+      "Graphviz"
+    ],
+    "image": "assets/img/projet/OGPlay.png"
+  },
+  {
+    "titre": {
+      "fr": "Arbre-généalogique",
+      "en": "Family tree"
+    },
     "description": {
       "fr": "Application web de création d'arbre généalogique.",
       "en": "Web application for building a family tree."
     },
-    "categorie": { "fr": "Personnel", "en": "Personal" },
-    "annee": "2025-2026",
-    "technos": ["HTML", "CSS", "JavaScript"],
+    "categorie": {
+      "fr": "Personnel",
+      "en": "Personal"
+    },
+    "annee": "2026",
+    "technos": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
     "image": "assets/img/projet/arbre-genealogique.png",
     "lien": "https://xznoow.github.io/arbre-genealogique/",
     "code": "https://github.com/Xznoow/arbre-genealogique"

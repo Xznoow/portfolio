@@ -4,7 +4,7 @@
   },
   "pages": {
     "accueil": "Home",
-    "parcours": "Resume",
+    "parcours": "About",
     "projets": "Projects",
     "freelance": "Freelance",
     "contact": "Contact"
@@ -12,24 +12,30 @@
   "aria": {
     "choixLangue": "Language selection",
     "ouvrirMenu": "Open menu",
-    "fermerMenu": "Close menu"
+    "fermerMenu": "Close menu",
+    "sommaire": "Page contents"
   },
   "nav": {
-    "parcours": "Resume",
+    "parcours": "About",
     "projets": "Projects",
     "freelance": "Freelance",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "Resume"
+  },
+  "cv": {
+    "fichier": "assets/cv/Antoine-Degeorges-CV-en.pdf"
   },
   "commun": {
-    "meContacter": "Contact me",
+    "telechargerCv": "Download my resume",
     "bandeStageTitre": "Have an internship or a work-study position to offer?",
-    "bandeStageTexte": "Drop me a line, I would be happy to talk about it."
+    "bandeStageTexte": "Drop me a line, I would be happy to talk about it.",
+    "meContacter": "Contact me"
   },
   "accueil": {
     "titre": "Hi, I'm Antoine.",
     "role": "Computer Science student, and already ",
     "roleAccent": "a freelance web developer.",
-    "intro": "I'm 18, I live in Annecy, France, and I'm in my second year of BUT Informatique (Bachelor's Degree of Technology in Computer Science) at IUT d'Annecy. Alongside my studies, I build websites for clients. I am currently looking for an internship.",
+    "intro": "I'm 19, I live in Annecy, France, and I'm in my second year of BUT Informatique (Bachelor's Degree of Technology in Computer Science) at IUT d'Annecy. Alongside my studies, I am launching my freelance web development business. I am currently looking for an internship.",
     "voirProjets": "See my projects",
     "badge": "Looking for an internship & a work-study position",
     "outilsTitre": "What I work with",
@@ -38,13 +44,13 @@
     "formationTexte": "Second year of BUT Informatique at IUT d'Annecy, Université Savoie Mont Blanc: software development, databases, systems and networks, project management.",
     "formationLien": "See my background",
     "productionTitre": "In production",
-    "productionTexte": "Freelance web developer: I design websites for clients, deploy them on a server I manage myself and keep them up to date.",
+    "productionTexte": "Freelance web developer: I design websites, deploy them on a server I manage myself and keep them up to date.",
     "productionLien": "See my business",
     "projetsTitre": "Projects",
     "projetsLien": "All projects"
   },
   "parcours": {
-    "titre": "Resume",
+    "titre": "About",
     "intro": "I am in my second year of BUT Informatique at IUT d'Annecy. At the same time, I build websites as a freelancer: what I learn in class, I apply to real projects.",
     "chercheTitre": "What I'm looking for",
     "stageTitre": "Second-year internship",
@@ -52,26 +58,101 @@
     "stageDates": "Dates: April to June 2027",
     "alternanceTitre": "Work-study (apprenticeship)",
     "alternanceSousTitre": "Third year of BUT, 2027 – 2028",
-    "timelineTitre": "Education and experience",
-    "but3Titre": "BUT Informatique – 3rd year",
+    "experienceTitre": "Experience",
+    "depuis": "Since",
+    "exp": {
+      "freelance": {
+        "date": "Oct 2026",
+        "titre": "Freelance web developer",
+        "lieu": "Micro-entreprise (sole trader) · Annecy, France",
+        "texte": "Designing, hosting and maintaining websites for small businesses, including quotes, contracts and client relations. I designed and administer the hosting server on my own: an OVHcloud VPS running Debian, Docker containers on isolated networks, and Bash scripts for backups, deployment and security audits.",
+        "lien": "See the business"
+      },
+      "benevolt": {
+        "date": "Sept 2026",
+        "titre": "SAÉ 3.01 – Benevolt",
+        "lieu": "University team project (4 members) · IUT d'Annecy, France",
+        "texte": "Fictional project modelled on Benevolt, a platform that matches volunteers with associations. I wrote the use cases for the Association and Administration areas, then the SQL constraints and test data for the PostgreSQL database generated from the data model (MCD). Development with Laravel, using Scrum, starts soon."
+      },
+      "ogplay": {
+        "titre": "SAÉ 2.02 – OGP'Lay",
+        "lieu": "University team project (6 members) · IUT d'Annecy, France",
+        "texte": "Business simulation game of a food-processing company. We modelled the production chains as graphs, then optimised the production plan with linear programming: 75.9% more profit than a greedy approach. Results presented orally."
+      },
+      "mobalpa": {
+        "titre": "SAÉ 2.01 – MobAlpa",
+        "lieu": "University team project (3 members) · IUT d'Annecy, France",
+        "texte": "Desktop quote management application for a fictional kitchen company modelled on Mobalpa, with two roles: sales representative and store manager. I built the navigation menu and the four main screens, factored the interface styles, then developed client management (list, search, creation, deletion) and role management, with a catalogue CRUD restricted to the manager."
+      }
+    },
     "etiquettes": {
-      "aVenir": "Upcoming",
       "enCours": "In progress",
-      "terminee": "Completed",
-      "parallele": "Alongside",
       "obtenu": "Obtained"
     },
-    "but3Texte": "A year I would like to complete as a work-study student.",
-    "but2Titre": "BUT Informatique – 2nd year",
-    "but2Texte": "IUT d'Annecy, Université Savoie Mont Blanc – Annecy, France. Bachelor's Degree of Technology in Computer Science (3-year undergraduate diploma). Internship at the end of the year.",
-    "but1Titre": "BUT Informatique – 1st year",
-    "but1Texte": "IUT d'Annecy – Annecy, France.",
-    "depuis": "Since",
-    "freelanceDate": "October 2026",
-    "freelanceTitre": "Freelance web developer",
-    "freelanceTexte": "Building and deploying websites for clients alongside my studies.",
-    "bacTitre": "French Baccalaureate (technological track) – Lycée de l'Albanais",
-    "bacTexte": "High school diploma specialized in Information Systems and Digital Technology (SIN).",
+    "voirProjet": "See the project",
+    "formationTitre": "Education",
+    "form": {
+      "but": {
+        "titre": "BUT Informatique (Bachelor's Degree of Technology in Computer Science)",
+        "lieu": "IUT d'Annecy, Université Savoie Mont Blanc · Annecy, France",
+        "texte": "3-year undergraduate degree, track A: Application Development. Currently in second year, with an internship from April to June 2027; third year planned as a work-study programme."
+      },
+      "bac": {
+        "titre": "Baccalauréat STI2D – SIN (French high school diploma)",
+        "lieu": "Lycée de l'Albanais · Rumilly, France",
+        "texte": "Industrial sciences and technologies for sustainable development, specialising in Information Systems and Digital Technology."
+      }
+    },
+    "competencesTitre": "Technical skills",
+    "softTitre": "Soft skills",
+    "soft": {
+      "autonome": {
+        "titre": "Self-directed and able to take initiative",
+        "texte": "I launched my own micro-business and administer my server on my own."
+      },
+      "rigoureux": {
+        "titre": "Methodical and organised",
+        "texte": "I documented my infrastructure in an operations manual and automated its security checks."
+      },
+      "equipe": {
+        "titre": "Adaptable and self-sufficient",
+        "texte": "I switch between languages depending on the project (C#, PHP, Python, JavaScript) and teach myself the tools I am missing."
+      },
+      "curieux": {
+        "titre": "Precise and analytical",
+        "texte": "On OGP'Lay, analysing the production constraints led to an optimisation model that increased profit by 75.9%."
+      }
+    },
+    "languesTitre": "Languages",
+    "interetsTitre": "Interests",
+    "interets": {
+      "muscu": {
+        "titre": "Weight training",
+        "texte": "Since February 2026, 3 to 4 sessions a week at the gym (Basic-Fit Épagny). Goal: reach 80 kg before 2028."
+      },
+      "jeux": {
+        "titre": "Video games",
+        "texte": "Mostly team games: Counter-Strike 2, Rocket League and Sea of Thieves, as well as GTA."
+      },
+      "moto": {
+        "titre": "Motorbikes and mechanics",
+        "texte": "During high school I had a 50cc Derbi. What attracted me most was the mechanics."
+      },
+      "rap": {
+        "titre": "French rap",
+        "texte": "It is the music I listen to the most."
+      }
+    },
+    "referencesTitre": "References",
+    "references": {
+      "vibrac": {
+        "poste": "English Lecturer, International Coordinator"
+      },
+      "structure": "Université Savoie Mont Blanc / IUT d'Annecy, France",
+      "damas": {
+        "poste": "Associate Professor of Programming"
+      }
+    },
     "butTitre": "What the BUT Informatique covers",
     "butIntro": "The degree is built around six skills, developed over the three years. My specialization track: ",
     "butSpecialite": "Application Development",
@@ -107,11 +188,41 @@
         "texte": "Fit into a team, communicate and share the workload."
       }
     },
-    "langagesTitre": "Languages studied in class:"
+    "langagesTitre": "Languages studied in class:",
+    "sommaire": {
+      "experience": "Experience",
+      "formation": "Education",
+      "competences": "Skills",
+      "qualites": "Soft skills",
+      "langues": "Languages",
+      "interets": "Interests",
+      "references": "References"
+    }
+  },
+  "competences": {
+    "niveaux": {
+      "1": "Beginner",
+      "2": "Basic",
+      "3": "Intermediate",
+      "4": "Proficient",
+      "5": "Advanced",
+      "6": "Expert"
+    }
+  },
+  "langues": {
+    "niveaux": {
+      "natif": "Native speaker",
+      "A1": "A1 – Beginner",
+      "A2": "A2 – Elementary",
+      "B1": "B1 – Intermediate",
+      "B2": "B2 – Upper intermediate",
+      "C1": "C1 – Advanced",
+      "C2": "C2 – Proficient"
+    }
   },
   "projets": {
     "titre": "Projects",
-    "intro": "Websites built for clients, BUT projects and what I build in my free time.",
+    "intro": "University projects from my BUT and what I build in my free time.",
     "visiter": "Visit the project",
     "code": "View the code",
     "erreur": "Unable to load the projects."
