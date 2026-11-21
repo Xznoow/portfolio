@@ -28,13 +28,14 @@ function memoriserTextesOrigine() {
 memoriserTextesOrigine();
 
 function choisirLangueInitiale() {
+  // Paramètre dans l'URL (?lang=en)
+  const langueUrl = new URLSearchParams(location.search).get('lang');
+  if (LANGUES.includes(langueUrl)) return langueUrl;
+  
   // Choix déjà fait par le visiteur
   const langueEnregistree = localStorage.getItem('langue');
   if (LANGUES.includes(langueEnregistree)) return langueEnregistree;
 
-  // Paramètre dans l'URL (?lang=en)
-  const langueUrl = new URLSearchParams(location.search).get('lang');
-  if (LANGUES.includes(langueUrl)) return langueUrl;
 
   // Langue du navigateur
   return navigator.language.startsWith('fr') ? 'fr' : 'en';

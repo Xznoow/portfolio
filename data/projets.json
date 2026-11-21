@@ -6,7 +6,7 @@
       "fr": "Application de bureau de gestion de devis pour un cuisiniste fictif inspiré de Mobalpa, avec des droits différents pour les commerciaux et les responsables.",
       "en": "Desktop quote management application for a fictional kitchen company modelled on Mobalpa, with different permissions for sales staff and managers."
     },
-    "contexte": "sae",
+    "contexte": "Projet universitaire",
     "annee": "2026",
     "statut": "termine",
     "equipe": 3,
@@ -51,7 +51,7 @@
       "fr": "Optimisation d'un jeu de simulation d'entreprise agroalimentaire par programmation linéaire : +75,9 % de bénéfice par rapport à une approche gloutonne.",
       "en": "Optimisation of a food-industry business simulation game with linear programming: 75.9% more profit than a greedy approach."
     },
-    "contexte": "sae",
+    "contexte": "Projet universitaire",
     "annee": "2026",
     "statut": "termine",
     "equipe": 6,
@@ -90,7 +90,7 @@
       "fr": "Serveur d'hébergement que j'ai conçu et que j'administre pour mes projets personnels et professionnels : conteneurs isolés, sécurisation et automatisation.",
       "en": "Hosting server I designed and administer for my personal and professional projects: isolated containers, hardening and automation."
     },
-    "contexte": "perso",
+    "contexte": "Projet Personnel",
     "annee": "2026",
     "statut": "en-cours",
     "equipe": 1,
@@ -135,7 +135,7 @@
       "fr": "Mon site personnel, bilingue français / anglais, développé sans framework : routeur maison, données en JSON, filtres et pop-ups.",
       "en": "My personal website, bilingual French / English, built without any framework: custom router, JSON data, filters and pop-ups."
     },
-    "contexte": "perso",
+    "contexte": "Projet Personnel",
     "annee": "2026",
     "statut": "en-cours",
     "equipe": 1,
@@ -182,7 +182,7 @@
       "fr": "Panel web local pour piloter des bots Minecraft : chat en temps réel, envoi de messages et connexion aux serveurs via ViaProxy.",
       "en": "Local web panel to control Minecraft bots: real-time chat, sending messages and connecting to servers via ViaProxy."
     },
-    "contexte": "perso",
+    "contexte": "Projet Personnel",
     "annee": "2026",
     "statut": "en-cours",
     "equipe": 1,
@@ -219,7 +219,7 @@
       "fr": "Plateforme fictive inspirée de Benevolt, qui met en relation des bénévoles et des associations. Conception terminée, développement à venir.",
       "en": "Fictional platform modelled on Benevolt, matching volunteers with associations. Design completed, development coming soon."
     },
-    "contexte": "sae",
+    "contexte": "Projet universitaire",
     "annee": "2026-2027",
     "statut": "en-cours",
     "equipe": 4,
@@ -267,7 +267,7 @@
       "fr": "Application web pour créer son arbre généalogique directement dans le navigateur.",
       "en": "Web application for building a family tree directly in the browser."
     },
-    "contexte": "perso",
+    "contexte": "Projet Personnel",
     "annee": "2026",
     "statut": "en-cours",
     "equipe": 1,

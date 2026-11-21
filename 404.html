@@ -4,17 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page introuvable – Antoine Degeorges</title>
-<link rel="icon" href="/assets/img/icon/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/img/icon/apple-touch-icon.png">
+<!-- Racine du site : / sur le VPS, /~login/dossier/ sur un serveur avec userdir.
+     La balise <base> doit être créée avant les liens vers les assets. -->
+<script>
+  (function () {
+    const racine = location.pathname.match(/^\/~[^/]+\/[^/]+\//);
+    const base = document.createElement('base');
+    base.href = racine ? racine[0] : '/';
+    document.head.append(base);
+  })();
+</script>
+<link rel="icon" href="assets/img/icon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header>
   <div class="conteneur header-barre">
-    <a href="/" class="logo">Antoine<span>.D</span></a>
+    <a href="./" class="logo">Antoine<span>.D</span></a>
   </div>
 </header>
 <div class="conteneur">
@@ -23,7 +33,7 @@
         <p>Cette page n'existe pas, ou elle a été déplacée.</p>
     </div>
     <div class="actions">
-        <a href="/" class="bouton bouton--plein">Retour à l'accueil <span class="fleche" aria-hidden="true">→</span></a>
+        <a href="./" class="bouton bouton--plein">Retour à l'accueil <span class="fleche" aria-hidden="true">→</span></a>
     </div>
 </div>
 </body>

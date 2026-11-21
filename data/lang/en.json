@@ -20,13 +20,13 @@
     "projets": "Projects",
     "freelance": "Freelance",
     "contact": "Contact",
-    "cv": "Resume"
+    "cv": "CV"
   },
   "cv": {
     "fichier": "assets/cv/Antoine-Degeorges-CV-en.pdf"
   },
   "commun": {
-    "telechargerCv": "Download my resume",
+    "telechargerCv": "Download my CV",
     "bandeStageTitre": "Have an internship or a work-study position to offer?",
     "bandeStageTexte": "Drop me a line, I would be happy to talk about it.",
     "meContacter": "Contact me"
@@ -154,7 +154,7 @@
       }
     },
     "butTitre": "What the BUT Informatique covers",
-    "butIntro": "The degree is built around six skills, developed over the three years. My specialization track: ",
+    "butIntro": "The degree is built around six skills, developed over the three years. My specialisation track: ",
     "butSpecialite": "Application Development",
     "competences": {
       "realiser": {
@@ -163,8 +163,8 @@
         "texte": "Design, code, test and integrate an IT solution."
       },
       "optimiser": {
-        "titre": "Optimize",
-        "sousTitre": "Optimize applications",
+        "titre": "Optimise",
+        "sousTitre": "Optimise applications",
         "texte": "Choose the right data structures and algorithms, measure and improve."
       },
       "administrer": {
@@ -180,7 +180,7 @@
       "conduire": {
         "titre": "Lead",
         "sousTitre": "Lead a project",
-        "texte": "Analyze a need, plan a project and track its progress."
+        "texte": "Analyse a need, plan a project and track its progress."
       },
       "collaborer": {
         "titre": "Collaborate",
