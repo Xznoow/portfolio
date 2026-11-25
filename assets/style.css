@@ -1,16 +1,16 @@
 :root{
-  --fond: #0d0a1a;
-  --fond-doux: #120e24;
-  --surface: #1a1532;
-  --encre: #f3f0fb;
-  --encre-2: #d6cfe8;
-  --discret: #a198bf;
-  --filet: #2a2342;
-  --filet-fort: #3b3258;
-  --accent: #b18cff;
-  --accent-fort: #cdb8ff;
-  --accent-doux: rgb(177 140 255 / 0.12);
-  --sur-accent: #0d0a1a;
+  --fond: #0c0c0d;
+  --fond-doux: #101113;
+  --surface: #16181b;
+  --encre: #dce3e9;
+  --encre-2: #b4bdc6;
+  --discret: #8a939c;
+  --filet: #24272c;
+  --filet-fort: #343940;
+  --accent: #dcef3a;
+  --accent-fort: #ebf78f;
+  --accent-doux: color-mix(in srgb, var(--accent) 12%, transparent);
+  --sur-accent: #0c0c0d;
   --succes: #16a34a;
 
   --ombre-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 6px -1px rgb(0 0 0 / 0.3);
@@ -470,7 +470,7 @@ img{
   height: 0.625rem;
   border-radius: 50%;
   background: var(--succes);
-  box-shadow: 0 0 0 4px rgb(22 163 74 / 0.2);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--succes) 20%, transparent);
 }
 
 /* --- Étiquette --- */
@@ -710,7 +710,7 @@ header{
   top: 0;
   z-index: 10;                                
   border-bottom: 1px solid transparent;
-  background: rgb(13 10 26 / 0.85);
+  background: color-mix(in srgb, var(--fond) 85%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: border-color 0.25s ease;
@@ -1181,7 +1181,7 @@ main section.active{
   width: auto;
   margin: 0;
   border-block: 1px solid var(--filet);
-  background: rgb(13 10 26 / 0.85);
+  background: color-mix(in srgb, var(--fond) 85%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
@@ -1461,7 +1461,7 @@ main section.active{
 }
 
 .modale::backdrop{
-  background: rgb(5 3 12 / 0.7);
+  background: color-mix(in srgb, color-mix(in srgb, var(--fond) 40%, black) 70%, transparent);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
@@ -1505,7 +1505,7 @@ body:has(.modale[open]){
   margin: 0.75rem 0.75rem -3.25rem 0;
   border: 1px solid var(--filet-fort);
   border-radius: 50%;
-  background: rgb(13 10 26 / 0.8);
+  background: color-mix(in srgb, var(--fond) 80%, transparent);
   color: var(--encre);
   font-size: 1rem;
   cursor: pointer;
