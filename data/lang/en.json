@@ -23,7 +23,8 @@
     "cv": "CV"
   },
   "cv": {
-    "fichier": "assets/cv/Antoine-Degeorges-CV-en.pdf"
+    "titre": "Which version of my CV?",
+    "texte": "The PDF opens in a new tab."
   },
   "commun": {
     "telechargerCv": "Download my CV",

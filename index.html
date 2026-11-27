@@ -27,7 +27,7 @@
                 <li><a href="#/projets" data-i18n="nav.projets">Projets</a></li>
                 <li><a href="#/freelance" data-i18n="nav.freelance">Freelance</a></li>
                 <li><a href="#/contact" data-i18n="nav.contact">Contact</a></li>
-                <li class="nav-cv"><a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="lien-cv" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="nav.cv">CV</span></a></li>
+                <li class="nav-cv"><button type="button" class="lien-cv" data-ouvrir-cv aria-haspopup="dialog"><span class="icone icone--document"></span><span data-i18n="nav.cv">CV</span></button></li>
             </ul>
         </nav>
         <div class="choix-langue" role="group" data-langue="fr" aria-label="Choix de la langue" data-i18n-attr="aria-label:aria.choixLangue">
@@ -49,7 +49,7 @@
                     <p class="heros-intro" data-i18n="accueil.intro">J'ai 19 ans, je vis à Annecy et je suis en 2e année de BUT Informatique à l'IUT d'Annecy. À côté des cours, je lance mon activité de développeur web freelance. Je suis actuellement à la recherche d'un stage.</p>
                     <div class="actions">
                         <a href="#/projets" class="bouton bouton--plein"><span data-i18n="accueil.voirProjets">Voir mes projets</span> <span class="fleche" aria-hidden="true">→</span></a>
-                        <a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="bouton bouton--contour" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></a>
+                        <button type="button" class="bouton bouton--contour" data-ouvrir-cv aria-haspopup="dialog"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></button>
                     </div>
                 </div>
                 <div class="portrait">
@@ -588,7 +588,7 @@
                                 <dd data-i18n="contact.alternanceDates">3e année de BUT, 2027 – 2028</dd>
                             </div>
                         </dl>
-                        <a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" class="bouton bouton--contour bouton-cv-contact" data-i18n-attr="href:cv.fichier"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></a>
+                        <button type="button" class="bouton bouton--contour bouton-cv-contact" data-ouvrir-cv aria-haspopup="dialog"><span class="icone icone--document"></span><span data-i18n="commun.telechargerCv">Télécharger mon CV</span></button>
                     </div>
                 </div>
             </div>
@@ -602,6 +602,23 @@
                 <span aria-hidden="true">✕</span>
             </button>
             <div class="modale-corps" id="modale-corps"></div>
+        </div>
+    </dialog>
+
+    <!-- Pop-up de choix de la version du CV -->
+    <dialog class="modale modale--petite" id="modale-cv" aria-labelledby="modale-cv-titre">
+        <div class="modale-boite">
+            <button type="button" class="modale-fermer" aria-label="Fermer" data-i18n-attr="aria-label:projets.fermer">
+                <span aria-hidden="true">✕</span>
+            </button>
+            <div class="modale-cv">
+                <h2 id="modale-cv-titre" data-i18n="cv.titre">Quelle version de mon CV ?</h2>
+                <p data-i18n="cv.texte">Le PDF s'ouvre dans un nouvel onglet.</p>
+                <div class="modale-cv-choix">
+                    <a href="assets/cv/Antoine-Degeorges-CV-fr.pdf" target="_blank" rel="noopener" hreflang="fr" lang="fr" class="bouton bouton--contour" data-langue-cv="fr"><span class="icone icone--document"></span>Français</a>
+                    <a href="assets/cv/Antoine-Degeorges-CV-en.pdf" target="_blank" rel="noopener" hreflang="en" lang="en" class="bouton bouton--contour" data-langue-cv="en"><span class="icone icone--document"></span>English</a>
+                </div>
+            </div>
         </div>
     </dialog>
 

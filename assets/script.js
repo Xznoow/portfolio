@@ -573,10 +573,12 @@ function ouvrirProjet(projet) {
   modale.querySelector('.modale-fermer').focus();
 }
 
-modale.querySelector('.modale-fermer').addEventListener('click', () => modale.close());
-
-modale.addEventListener('click', (event) => {
-  if (event.target === modale) modale.close();
+// Fermeture commune à toutes les pop-ups : bouton ✕ et clic sur le fond
+document.querySelectorAll('.modale').forEach((dialogue) => {
+  dialogue.querySelector('.modale-fermer').addEventListener('click', () => dialogue.close());
+  dialogue.addEventListener('click', (event) => {
+    if (event.target === dialogue) dialogue.close();
+  });
 });
 
 modale.addEventListener('close', () => {
@@ -584,6 +586,31 @@ modale.addEventListener('close', () => {
 });
 
 chargerProjets();
+
+// ===== Pop-up de choix du CV =====
+const modaleCv = document.querySelector('#modale-cv');
+const choixCv = modaleCv.querySelectorAll('a[data-langue-cv]');
+
+function ouvrirChoixCv() {
+  fermerMenu();
+  // La version de la langue affichée passe en premier et en bouton plein
+  choixCv.forEach((lien) => {
+    const actuelle = lien.dataset.langueCv === langueActuelle;
+    lien.classList.toggle('bouton--plein', actuelle);
+    lien.classList.toggle('bouton--contour', !actuelle);
+    lien.style.order = actuelle ? -1 : 0;
+  });
+  modaleCv.showModal();
+}
+
+document.querySelectorAll('[data-ouvrir-cv]').forEach((bouton) => {
+  bouton.addEventListener('click', ouvrirChoixCv);
+});
+
+// Le PDF s'ouvre dans un nouvel onglet : on referme la pop-up
+choixCv.forEach((lien) => {
+  lien.addEventListener('click', () => modaleCv.close());
+});
 
 // ===== Compétences et langues =====
 // données charger depuis data/competences.json
